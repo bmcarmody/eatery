@@ -1,15 +1,15 @@
 const express = require('express');
+const server = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 
-const app = express();
-
-const User = require('./models/User');
+// Imported Routes
+const users = require('./routes/api/users');
 
 // Body parser middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: false }));
+server.use(bodyParser.json());
 
 const db = require('./config/keys').mongoURI;
 
@@ -19,25 +19,23 @@ mongoose
     db,
     { useNewUrlParser: true }
   )
-  .then(() => console.log('MongoDB connect'))
+  .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
 // Passport middleware
-//app.use(passport.initialize());
+//server.use(passport.initialize());
 
 // Passport Config
 //require('./config/passport')(passport);
 
-const newUser = User({
-  name: 'Test',
-  email: 'Test',
-  password: 'Test',
-});
-
-newUser.save();
+// API Routes
+server.use('/api/users', users);
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+
+// Exporting server for testing purposes
+module.exports = server;
