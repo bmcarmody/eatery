@@ -22,6 +22,8 @@ mongoose
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
+mongoose.set('useCreateIndex', true); // Fixes deprecation warnings
+
 // Passport middleware
 //server.use(passport.initialize());
 
