@@ -23,6 +23,7 @@ mongoose
   .catch(err => console.log(err));
 
 mongoose.set('useCreateIndex', true); // Fixes deprecation warnings
+mongoose.set('useFindAndModify', false);
 
 // Passport middleware
 //app.use(passport.initialize());

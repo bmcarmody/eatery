@@ -16,7 +16,7 @@ afterAll(async () => {
 });
 
 describe('POST /register', () => {
-  test('It should register a user and hash password', done => {
+  it('should register a user and hash password', done => {
     const name = 'Phil';
     const email = 'examples@test.com';
     const password = 'password';
@@ -47,7 +47,7 @@ describe('POST /register', () => {
       });
   });
 
-  test('It should not register a user with invalid credentials', done => {
+  it('should not register a user with invalid credentials', done => {
     const name = 'Jo';
     const email = 'notavalidemail';
     const password = '123';
@@ -72,7 +72,7 @@ describe('POST /register', () => {
       });
   });
 
-  test('It should not register a user with an already used email', done => {
+  it('should not register a user with an already used email', done => {
     const name = 'Joseph';
     const email = 'alreadyused@test.com';
     const password = 'password';
@@ -94,6 +94,46 @@ describe('POST /register', () => {
           .catch(err => {
             done(err);
           });
+      });
+  });
+});
+
+describe('POST /login', () => {
+  it('should login the user and generate bearer token', done => {
+    request(app)
+      .post('/login')
+      .send({
+        email: users[0].email,
+        password: users[0].password,
+      })
+      .expect(200)
+      .expect(res => {
+        expect(res.body.token).toBeDefined();
+      })
+      .end((err, res) => {
+        if (err) {
+          return done(err);
+        }
+        done();
+      });
+  });
+
+  it('should not login a user with invalid credentials', done => {
+    request(app)
+      .post('/login')
+      .send({
+        email: users[0].email,
+        password: 'incorrect',
+      })
+      .expect(400)
+      .expect(res => {
+        expect(res.body.error).toBeDefined();
+      })
+      .end((err, res) => {
+        if (err) {
+          return done(err);
+        }
+        done();
       });
   });
 });

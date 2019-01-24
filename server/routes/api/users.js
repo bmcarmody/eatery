@@ -32,4 +32,25 @@ router.post('/register', (req, res) => {
     });
 });
 
+// @route   POST api/users/login
+// @desc    Login user to website
+// @access  Public
+router.post('/login', (req, res) => {
+  const body = _.pick(req.body, ['email', 'password']);
+
+  User.findByCredentials(body.email, body.password)
+    .then(user => {
+      // prettier-ignore
+      user.generateBearerToken().then(token => {
+        res.status(200).json({success: true, token});
+      })
+      .catch(err => {
+        res.status(400).send(err);
+      })
+    })
+    .catch(err => {
+      res.status(400).json({ error: 'Email or password is incorrect' });
+    });
+});
+
 module.exports = router;

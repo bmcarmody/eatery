@@ -71,16 +71,16 @@ UserSchema.methods.generateBearerToken = function() {
   const payload = {
     id: user.id,
     email: user.email,
-    name: user.name,
   };
 
-  // Sign Token
-  jwt.sign(payload, keys.secret, { expiresIn: 3600 }, (err, token) => {
-    if (err) {
-      return { error: err };
-    }
-
-    return token;
+  return new Promise((resolve, reject) => {
+    jwt.sign(payload, keys.secret, { expiresIn: 3600 }, (err, token) => {
+      if (err) {
+        reject(err);
+      }
+      const formattedToken = `Bearer ${token}`;
+      resolve(formattedToken);
+    });
   });
 };
 
