@@ -1,6 +1,6 @@
 const { ObjectID } = require('mongodb');
 
-const { User } = require('../../models/User');
+const { User } = require('../../db/models/User');
 
 const users = [
   {
@@ -18,7 +18,7 @@ const users = [
 ];
 
 const populateUsers = done => {
-  User.remove({})
+  User.deleteMany({})
     .then(() => {
       const userOne = new User(users[0]).save();
       const userTwo = new User(users[1]).save();

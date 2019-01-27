@@ -3,7 +3,7 @@ const route = require('../../routes/api/users');
 const mongoose = require('mongoose');
 
 const { app, server } = require('../../server');
-const { User } = require('../../models/User');
+const { User } = require('../../db/models/User');
 const { users, populateUsers } = require('../seed/testUserData');
 
 app.use(route);

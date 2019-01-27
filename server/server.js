@@ -11,7 +11,7 @@ const users = require('./routes/api/users');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const db = require('./config/keys').mongoURI;
+const db = require('./db/keys').mongoURI;
 
 // Connect to MongoDB
 mongoose

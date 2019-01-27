@@ -1,14 +1,10 @@
 // Library imports
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const keys = require('../../config/keys');
-const passport = require('passport');
 const _ = require('lodash');
 
 // Mongoose models
-const { User } = require('../../models/User');
+const { User } = require('../../db/models/User');
 
 // @route   GET api/users/test
 // @desc    Tests users route
