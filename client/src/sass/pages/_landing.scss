@@ -1,14 +1,30 @@
 .landing {
-  background-image: url('../img/landing.jpeg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  &__image {
+    background-image: url('../img/landing3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 
-  filter: blur(2px);
+    filter: blur(3px);
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 4rem;
+    color: #e6e9e9;
+    margin-bottom: 1rem;
+  }
+
+  &__search {
+    width: 50rem;
+    height: 5rem;
+    font-size: 2rem;
+    padding-left: 1rem;
+  }
 }
