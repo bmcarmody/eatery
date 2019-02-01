@@ -16,8 +16,8 @@
 
   &__title {
     text-align: center;
-    font-size: 4rem;
-    color: #e6e9e9;
+    font-size: 6rem;
+    color: white;
     margin-bottom: 1rem;
   }
 
@@ -26,5 +26,30 @@
     height: 5rem;
     font-size: 2rem;
     padding-left: 1rem;
+    border-radius: 1px;
+    border: none;
+
+    &:focus {
+      outline: none;
+      border: 2px solid $color-primary;
+      padding-left: 8px;
+    }
+  }
+
+  button {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 3.5rem;
+    border: none;
+
+    &:focus {
+      outline: none;
+      color: $color-primary;
+    }
+  }
+
+  &__field {
+    position: relative;
   }
 }
