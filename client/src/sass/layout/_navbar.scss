@@ -1,0 +1,24 @@
+.background--white {
+  background-color: white;
+}
+
+.nav {
+  margin-left: 10rem;
+  margin-right: 10rem;
+  height: 10rem;
+
+  &__link {
+    text-decoration: none;
+    font-size: 2.5rem;
+    color: #707070;
+
+    font-family: house-script, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  &__title {
+    color: #ff6a6a;
+    font-size: 5.5rem;
+  }
+}

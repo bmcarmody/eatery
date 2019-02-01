@@ -1,0 +1,25 @@
+.nav {
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  grid-gap: 2rem;
+
+  &__title {
+    grid-column: col-start 6 / span 2;
+    grid-row: 1;
+    align-self: center;
+    justify-self: center;
+  }
+
+  &__link {
+    align-self: center;
+    &--login {
+      grid-column: col-start 11 / span 1;
+      grid-row: 1;
+    }
+
+    &--register {
+      grid-column: col-start 12 / span 1;
+      grid-row: 1;
+    }
+  }
+}

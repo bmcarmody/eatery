@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+import './sass/app.scss';
+
 import Navbar from './components/layout/Navbar';
 import Landing from './components/pages/Landing';
 import Login from './components/pages/Login';
