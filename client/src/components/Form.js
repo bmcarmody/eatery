@@ -5,35 +5,54 @@ const Form = props => {
     <div
       className={props.register ? 'card card--register' : 'card card--login'}
     >
-      <form className="form">
+      <form className="form" onSubmit={props.onSubmit}>
         <h1 className="form__title">{props.register ? 'Register' : 'Login'}</h1>
         <div className="form__title__border" />
 
         {props.register && (
           <div className="form__name">
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Name" />
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Name"
+              onChange={props.onChange}
+              name="name"
+            />
           </div>
         )}
 
         <div className="form__email">
-          <label for="name">Email</label>
-          <br />
-          <input type="text" id="email" placeholder="Email" />
+          <label htmlFor="email">Email</label>
+          <input
+            type="text"
+            id="email"
+            placeholder="Email"
+            onChange={props.onChange}
+            name="email"
+          />
         </div>
 
         <div className="form__password">
-          <label for="name">Password</label>
-          <input type="text" id="password" placeholder="Password" />
+          <label htmlFor="name">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            onChange={props.onChange}
+            name="password"
+          />
         </div>
 
         {props.register && (
           <div className="form__confirm-password">
-            <label for="confirmPass">Confirm Password</label>
+            <label htmlFor="confirmPass">Confirm Password</label>
             <input
-              type="text"
+              type="password"
               id="confirmPass"
               placeholder="Confirm Password"
+              onChange={props.onChange}
+              name="confirmPass"
             />
           </div>
         )}

@@ -14,7 +14,7 @@ const Landing = () => {
             autoFocus
           />
           <button type="submit">
-            <i class="fas fa-arrow-right" />
+            <i className="fas fa-arrow-right" />
           </button>
         </div>
       </div>
