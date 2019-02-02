@@ -36,20 +36,20 @@
     }
   }
 
-  button {
-    position: absolute;
-    top: 0.5rem;
-    right: 1rem;
-    font-size: 3.5rem;
-    border: none;
-
-    &:focus {
-      outline: none;
-      color: $color-primary;
-    }
-  }
-
   &__field {
     position: relative;
+
+    button {
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      font-size: 3.5rem;
+      border: none;
+
+      &:focus {
+        outline: none;
+        color: $color-primary;
+      }
+    }
   }
 }

@@ -24,15 +24,66 @@
   }
 }
 
-.landing {
+main {
   height: 91vh;
   display: grid;
   grid-template-columns: repeat(12, [col-start] 1fr);
   grid-gap: 2rem;
+}
 
+.landing {
   &--center {
     grid-column: col-start 1 / span 12;
     align-self: center;
     justify-self: center;
+  }
+}
+
+.card {
+  grid-column: col-start 1 / span 12;
+  align-self: center;
+  justify-self: center;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  grid-template-areas:
+    '. title .'
+    'border border border'
+    'name name name'
+    'email email email'
+    'password password password'
+    'cPassword cPassword cPassword'
+    'button button button';
+
+  &__title {
+    grid-area: title;
+    justify-self: center;
+
+    &__border {
+      grid-area: border;
+    }
+  }
+
+  &__name {
+    grid-area: name;
+  }
+
+  &__email {
+    grid-area: email;
+  }
+
+  &__password {
+    grid-area: password;
+  }
+
+  &__confirm-password {
+    grid-area: cPassword;
+  }
+
+  &__button {
+    grid-area: button;
   }
 }

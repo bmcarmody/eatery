@@ -1,0 +1,55 @@
+.card {
+  background-color: white;
+  border-radius: 5px;
+  width: 45rem;
+
+  &--register {
+    height: 55rem;
+  }
+
+  &--login {
+    height: 40rem;
+  }
+}
+
+.form {
+  font-family: house-script, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  &__title {
+    font-size: 4.5rem;
+    margin-top: 1rem;
+
+    &__border {
+      border-top: 1px solid black;
+    }
+  }
+
+  input {
+    width: 100%;
+    height: 4rem;
+    font-size: 1.5rem;
+    border-radius: 3px;
+    border: 1px solid black;
+    padding: 3px;
+  }
+
+  label {
+    font-size: 3rem;
+  }
+
+  &__button {
+    font-family: house-script, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    height: 5rem;
+    border-radius: 7px;
+    background-color: $color-primary;
+    color: white;
+    font-size: 3rem;
+    margin-top: 3rem;
+  }
+}

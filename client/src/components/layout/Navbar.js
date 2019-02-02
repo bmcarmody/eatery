@@ -28,7 +28,7 @@ export class Navbar extends Component {
             exact
             to="/register"
           >
-            Signup
+            Register
           </NavLink>
         </nav>
       </div>

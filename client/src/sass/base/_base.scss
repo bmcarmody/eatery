@@ -19,3 +19,20 @@ html,
 body {
   height: 100%;
 }
+
+.login {
+  &__image {
+    background-image: url('../img/login-register.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    filter: blur(1px);
+  }
+}
