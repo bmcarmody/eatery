@@ -1,6 +1,7 @@
-import axios from 'axios';
 import React, { Component } from 'react';
 import Form from '../Form';
+import { connect } from 'react-redux';
+import { loginUser } from '../../redux/actions/authActions';
 
 class Login extends Component {
   constructor() {
@@ -14,16 +15,20 @@ class Login extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onSubmit(e) {
-    e.preventDefault();
-    const userData = {
-      email: this.state.email,
-      password: this.state.password,
-    };
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+  }
 
-    axios
-      .post('/api/users/login', userData)
-      .then(console.log('Users logged in!'));
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
   }
 
   onChange(e) {
@@ -31,6 +36,17 @@ class Login extends Component {
       [e.target.name]: e.target.value,
     });
   }
+
+  onSubmit(e) {
+    e.preventDefault();
+    const userData = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+
+    this.props.loginUser(userData);
+  }
+
   render() {
     return (
       <main>
@@ -41,4 +57,12 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors,
+});
+
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(Login);
