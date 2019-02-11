@@ -69,5 +69,7 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { logoutUser }
+  { logoutUser },
+  null,
+  { pure: false } // Fixes issue with activeClassName not working on NavLinks
 )(Navbar);
