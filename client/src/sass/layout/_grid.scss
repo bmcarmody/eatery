@@ -21,6 +21,11 @@
       grid-column: col-start 12 / span 1;
       grid-row: 1;
     }
+
+    &--logout {
+      grid-column: col-start 12 / span 1;
+      grid-row: 1;
+    }
   }
 }
 

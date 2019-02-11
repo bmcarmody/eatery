@@ -13,35 +13,19 @@ export class Navbar extends Component {
     const { isAuthenticated } = this.props.auth;
 
     const authLinks = (
-      <nav className="nav">
-        <NavLink
-          className="nav__link nav__title"
-          activeClassName="nav--selected"
-          exact
-          to="/"
-        >
-          Eatery
-        </NavLink>
+      <React.Fragment>
         <a
           href="#nav"
           onClick={this.onLogoutClick.bind(this)}
-          className="nav__link nav--register"
+          className="nav__link nav__link--logout"
         >
           Logout
         </a>
-      </nav>
+      </React.Fragment>
     );
 
     const guestLinks = (
-      <nav className="nav">
-        <NavLink
-          className="nav__link nav__title"
-          activeClassName="nav--selected"
-          exact
-          to="/"
-        >
-          Eatery
-        </NavLink>
+      <React.Fragment>
         <NavLink
           className="nav__link nav__link--login"
           activeClassName="nav--selected"
@@ -58,12 +42,22 @@ export class Navbar extends Component {
         >
           Register
         </NavLink>
-      </nav>
+      </React.Fragment>
     );
 
     return (
       <div className="background--white">
-        {isAuthenticated ? authLinks : guestLinks}
+        <nav className="nav">
+          <NavLink
+            className="nav__link nav__title"
+            activeClassName="nav--selected"
+            exact
+            to="/"
+          >
+            Eatery
+          </NavLink>
+          {isAuthenticated ? authLinks : guestLinks}
+        </nav>
       </div>
     );
   }
