@@ -36,3 +36,10 @@ body {
     filter: blur(1px);
   }
 }
+
+input,
+.font__kepler {
+  font-family: kepler-std-caption, serif;
+  font-weight: 300;
+  font-style: normal;
+}

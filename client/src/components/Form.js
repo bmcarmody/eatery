@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Form = props => {
   return (
@@ -42,6 +43,11 @@ const Form = props => {
             onChange={props.onChange}
             name="password"
           />
+          {props.register && (
+            <div className="form__password__label form__password__label--alignment font__kepler">
+              Password must be atleast 8 characters
+            </div>
+          )}
         </div>
 
         {props.register && (
@@ -60,6 +66,32 @@ const Form = props => {
         <button className="form__button" type="submit">
           {props.register ? 'Register' : 'Login'}
         </button>
+
+        <div className="font__kepler form__guide">
+          {props.register ? (
+            <React.Fragment>
+              Already have an account? &nbsp;
+              <Link
+                to="/login"
+                exact
+                className="nav__selected form__guide--color-fix"
+              >
+                Login
+              </Link>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              Don't have an account? &nbsp;
+              <Link
+                to="/register"
+                exact
+                className="nav__selected form__guide--color-fix"
+              >
+                Register
+              </Link>
+            </React.Fragment>
+          )}
+        </div>
       </form>
     </div>
   );

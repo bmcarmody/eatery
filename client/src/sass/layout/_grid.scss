@@ -61,7 +61,8 @@ main {
     'email email email'
     'password password password'
     'cPassword cPassword cPassword'
-    'button button button';
+    'button button button'
+    'guide guide guide';
 
   &__title {
     grid-area: title;
@@ -90,5 +91,9 @@ main {
 
   &__button {
     grid-area: button;
+  }
+
+  &__guide {
+    grid-area: guide;
   }
 }
