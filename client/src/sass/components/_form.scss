@@ -4,7 +4,7 @@
   width: 45rem;
 
   &--register {
-    height: 59rem;
+    height: 57rem;
   }
 
   &--login {
@@ -46,6 +46,10 @@
     font-size: 3rem;
   }
 
+  hr {
+    margin-top: -13px;
+  }
+
   &__button {
     font-family: house-script, sans-serif;
     font-style: normal;
@@ -56,13 +60,25 @@
     color: white;
     font-size: 3rem;
     margin-top: 1.5rem;
+    border: none;
+
+    &:focus,
+    &:hover {
+      outline: none;
+      background-color: darken($color-primary, 5%);
+    }
+
+    &:active {
+      background-color: white;
+      color: $color-primary;
+      border: 2px solid $color-primary;
+    }
   }
 
   &__password__label {
     float: right;
     font-size: 1.7rem;
-    margin-top: 1rem;
-    margin-bottom: -1rem;
+    padding-top: 1rem;
   }
 
   &__guide {

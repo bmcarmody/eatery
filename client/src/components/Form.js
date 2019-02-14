@@ -36,6 +36,11 @@ const Form = props => {
 
         <div className="form__password">
           <label htmlFor="name">Password</label>
+          {props.register && (
+            <div className="form__password__label form__password__label--alignment font__kepler">
+              Password must be atleast 8 characters
+            </div>
+          )}
           <input
             type="password"
             id="password"
@@ -43,11 +48,6 @@ const Form = props => {
             onChange={props.onChange}
             name="password"
           />
-          {props.register && (
-            <div className="form__password__label form__password__label--alignment font__kepler">
-              Password must be atleast 8 characters
-            </div>
-          )}
         </div>
 
         {props.register && (

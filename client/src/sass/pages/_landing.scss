@@ -45,8 +45,10 @@
       right: 1rem;
       font-size: 3.5rem;
       border: none;
+      background: none;
 
-      &:focus {
+      &:focus,
+      &:active {
         outline: none;
         color: $color-primary;
       }
