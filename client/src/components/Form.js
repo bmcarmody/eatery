@@ -73,7 +73,6 @@ const Form = props => {
               Already have an account? &nbsp;
               <Link
                 to="/login"
-                exact
                 className="nav__selected form__guide--color-fix"
               >
                 Login
@@ -84,7 +83,6 @@ const Form = props => {
               Don't have an account? &nbsp;
               <Link
                 to="/register"
-                exact
                 className="nav__selected form__guide--color-fix"
               >
                 Register
