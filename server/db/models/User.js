@@ -10,12 +10,12 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   name: {
     type: String,
-    required: true,
-    minlength: 2,
+    required: [true, 'Name field is required'],
+    minlength: [2, 'Name field must be longer than 2 characters'],
   },
   email: {
     type: String,
-    required: true,
+    required: [true, 'Email field is require'],
     trim: true,
     minlength: 1,
     unique: true,
@@ -26,8 +26,8 @@ const UserSchema = new Schema({
   },
   password: {
     type: String,
-    required: true,
-    minlength: 6,
+    required: [true, 'Password field is required'],
+    minlength: [6, 'Password must be longer than 6 characters'],
   },
 });
 
@@ -83,6 +83,14 @@ UserSchema.methods.generateBearerToken = function() {
     });
   });
 };
+
+UserSchema.post('save', (error, doc, next) => {
+  if (error.name === 'MongoError' && error.code === 11000) {
+    next(new Error('Email already exists'));
+  } else {
+    next(error);
+  }
+});
 
 const User = mongoose.model('User', UserSchema);
 module.exports = { User };

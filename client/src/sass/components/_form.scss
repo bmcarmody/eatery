@@ -89,6 +89,10 @@
 
     &--color-fix {
       color: $color-primary-grey;
+
+      &:hover {
+        color: $color-primary;
+      }
     }
   }
 }

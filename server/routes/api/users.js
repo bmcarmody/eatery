@@ -15,16 +15,20 @@ router.get('/test', (req, res) => res.status(400).json({ msg: 'Users Works' }));
 // @desc    Register users to website
 // @access  Public
 router.post('/register', (req, res) => {
-  const body = _.pick(req.body, ['name', 'email', 'password']);
+  const body = _.pick(req.body, ['name', 'email', 'password', 'password2']);
   const user = new User(body);
 
   user
     .save()
     .then(() => {
-      res.status(200).send(user);
+      res.json(user);
     })
     .catch(err => {
-      res.status(400).send(err);
+      errorsObject = {};
+      Object.keys(err.errors).forEach(error => {
+        errorsObject[error] = err.errors[error].message;
+      });
+      res.status(400).json(errorsObject);
     });
 });
 
