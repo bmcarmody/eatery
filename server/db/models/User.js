@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const uniqueValidator = require('mongoose-unique-validator');
+
 const keys = require('../keys');
 
 const Schema = mongoose.Schema;
@@ -15,7 +17,7 @@ const UserSchema = new Schema({
   },
   email: {
     type: String,
-    required: [true, 'Email field is require'],
+    required: [true, 'Email field is required'],
     trim: true,
     minlength: 1,
     unique: true,
@@ -84,13 +86,6 @@ UserSchema.methods.generateBearerToken = function() {
   });
 };
 
-UserSchema.post('save', (error, doc, next) => {
-  if (error.name === 'MongoError' && error.code === 11000) {
-    next(new Error('Email already exists'));
-  } else {
-    next(error);
-  }
-});
-
+UserSchema.plugin(uniqueValidator, { message: 'Email is already registered' });
 const User = mongoose.model('User', UserSchema);
 module.exports = { User };

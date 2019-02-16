@@ -95,4 +95,21 @@
       }
     }
   }
+
+  &__error {
+    font-size: 1.7rem;
+    color: red;
+    float: right;
+    padding-top: 1rem;
+
+    &--red {
+      color: red;
+      label {
+        color: black;
+      }
+      input {
+        border: 1px solid red;
+      }
+    }
+  }
 }

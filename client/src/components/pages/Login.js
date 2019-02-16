@@ -9,6 +9,7 @@ class Login extends Component {
     this.state = {
       email: '',
       password: '',
+      errors: {},
     };
 
     this.onChange = this.onChange.bind(this);
@@ -51,7 +52,11 @@ class Login extends Component {
     return (
       <main>
         <div className="login__image" />
-        <Form onSubmit={this.onSubmit} onChange={this.onChange} />
+        <Form
+          onSubmit={this.onSubmit}
+          onChange={this.onChange}
+          errors={this.state.errors}
+        />
       </main>
     );
   }

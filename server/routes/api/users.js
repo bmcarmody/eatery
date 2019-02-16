@@ -16,6 +16,15 @@ router.get('/test', (req, res) => res.status(400).json({ msg: 'Users Works' }));
 // @access  Public
 router.post('/register', (req, res) => {
   const body = _.pick(req.body, ['name', 'email', 'password', 'password2']);
+  errorsObject = {};
+  if (body.password2) {
+    if (body.password2 !== body.password) {
+      errorsObject['password2'] = 'Passwords do not match';
+    }
+  } else {
+    errorsObject['password2'] = 'Please confirm your password';
+  }
+
   const user = new User(body);
 
   user
@@ -24,7 +33,6 @@ router.post('/register', (req, res) => {
       res.json(user);
     })
     .catch(err => {
-      errorsObject = {};
       Object.keys(err.errors).forEach(error => {
         errorsObject[error] = err.errors[error].message;
       });
@@ -38,19 +46,34 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res) => {
   const body = _.pick(req.body, ['email', 'password']);
 
-  User.findByCredentials(body.email, body.password)
-    .then(user => {
-      // prettier-ignore
-      user.generateBearerToken().then(token => {
+  if (!body.email || !body.password) {
+    errorsObject = {};
+
+    if (!body.email) {
+      errorsObject['email'] = 'Email field is required';
+    }
+
+    if (!body.password) {
+      errorsObject['password'] = 'Password field is required';
+    }
+    res.status(400).json(errorsObject);
+  } else {
+    User.findByCredentials(body.email, body.password)
+      .then(user => {
+        // prettier-ignore
+        user.generateBearerToken().then(token => {
         res.status(200).json({success: true, token});
       })
       .catch(err => {
         res.status(400).send(err);
       })
-    })
-    .catch(err => {
-      res.status(400).json({ error: 'Email or password is incorrect' });
-    });
+      })
+      .catch(err => {
+        res
+          .status(400)
+          .json({ email: 'Email or password is incorrect', password: ' ' });
+      });
+  }
 });
 
 module.exports = router;
