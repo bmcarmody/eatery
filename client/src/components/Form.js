@@ -53,7 +53,7 @@ const Form = props => {
 
         <div
           className={classnames('form__password', {
-            'form__error--red': props.errors.password || props.errors.password2,
+            'form__error--red': props.errors.password,
           })}
         >
           <label htmlFor="name">Password</label>
@@ -65,11 +65,9 @@ const Form = props => {
                 </div>
               ) : (
                 <React.Fragment>
-                  {props.password && (
-                    <div className="form__password__label form__password__label--alignment font__kepler">
-                      Password must be atleast 6 characters
-                    </div>
-                  )}
+                  <div className="form__password__label form__password__label--alignment font__kepler">
+                    Password must be at least 6 characters
+                  </div>
                 </React.Fragment>
               )}
             </React.Fragment>

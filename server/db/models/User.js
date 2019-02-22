@@ -29,9 +29,11 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: [true, 'Password field is required'],
-    minlength: [6, 'Password must be longer than 6 characters'],
+    minlength: [6, 'Password must be at least 6 characters'],
   },
 });
+
+UserSchema.set('validateBeforeSave', false);
 
 UserSchema.pre('save', function(next) {
   const user = this;

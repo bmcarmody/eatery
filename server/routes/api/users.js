@@ -16,28 +16,33 @@ router.get('/test', (req, res) => res.status(400).json({ msg: 'Users Works' }));
 // @access  Public
 router.post('/register', (req, res) => {
   const body = _.pick(req.body, ['name', 'email', 'password', 'password2']);
-  errorsObject = {};
-  if (body.password2) {
-    if (body.password2 !== body.password) {
-      errorsObject['password2'] = 'Passwords do not match';
-    }
-  } else {
-    errorsObject['password2'] = 'Please confirm your password';
-  }
+  let errorsObject = {};
 
   const user = new User(body);
 
-  user
-    .save()
-    .then(() => {
-      res.json(user);
-    })
-    .catch(err => {
+  user.validate(err => {
+    if (err) {
       Object.keys(err.errors).forEach(error => {
         errorsObject[error] = err.errors[error].message;
       });
+    }
+
+    if (body.password2) {
+      if (body.password2 !== body.password) {
+        errorsObject['password2'] = 'Passwords do not match';
+      }
+    } else {
+      errorsObject['password2'] = 'Please confirm your password';
+    }
+
+    if (!_.isEmpty(errorsObject)) {
       res.status(400).json(errorsObject);
-    });
+    } else {
+      user.save().then(() => {
+        res.json(user);
+      });
+    }
+  });
 });
 
 // @route   POST api/users/login
