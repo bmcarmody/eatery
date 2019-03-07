@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getRecipes } from '../../actions/recipeActions';
+import { generateRecipes } from '../../actions/recipeActions';
 
 class Landing extends Component {
   constructor() {
@@ -22,7 +22,7 @@ class Landing extends Component {
   onClick(e) {
     e.preventDefault();
     console.log('Submitted!');
-    this.props.getRecipes(this.state.searchQuery, this.props.history);
+    this.props.generateRecipes(this.state.searchQuery, this.props.history);
   }
 
   render() {
@@ -56,5 +56,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getRecipes }
+  { generateRecipes }
 )(Landing);

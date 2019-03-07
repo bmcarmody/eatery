@@ -1,0 +1,29 @@
+.recipe {
+  height: calc(100vh - 9rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__image {
+    background-image: url('../img/recipe_background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    filter: blur(3px);
+  }
+
+  &__container {
+    border-radius: 20px;
+    width: 80vw;
+    height: 80vh;
+    background-color: white;
+    padding: 2rem;
+  }
+}
