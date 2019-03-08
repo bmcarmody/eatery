@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
 
-  &__image {
+  &__background-image {
     background-image: url('../img/recipe_background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -25,5 +25,27 @@
     height: 80vh;
     background-color: white;
     padding: 2rem;
+  }
+
+  &__scrollbar {
+    overflow: auto;
+  }
+
+  &__results {
+    height: 100%;
+
+    list-style-type: none;
+
+    &__fig {
+      img {
+        border-radius: 50%;
+        position: relative;
+        width: 10rem;
+        height: 10rem;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
   }
 }
