@@ -24,16 +24,23 @@
     width: 80vw;
     height: 80vh;
     background-color: white;
-    padding: 2rem;
   }
 
   &__scrollbar {
     overflow: auto;
   }
 
+  &__item {
+    border-bottom: 1px solid black;
+    padding: 1.5rem;
+
+    &:last-child {
+      border: none;
+    }
+  }
+
   &__results {
     height: 100%;
-
     list-style-type: none;
 
     &__fig {
@@ -46,6 +53,32 @@
         background-repeat: no-repeat;
         background-size: cover;
       }
+    }
+
+    &__link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    &__data {
+      color: black;
+      padding-left: 0.5rem;
+    }
+
+    &__name {
+      font-size: 2rem;
+      padding-left: 1rem;
+    }
+
+    &__author {
+      font-family: house-script, sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      color: $color-primary;
+      font-size: 2rem;
     }
   }
 }
