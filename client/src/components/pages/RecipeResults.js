@@ -50,13 +50,20 @@ class RecipeResults extends Component {
             </ul>
           </div>
           <div className="recipe__details">
-            <img
-              src={this.state.recipe.image_url}
-              alt={this.state.recipe.title}
-            />
-            <h3>{this.state.recipe.title}</h3>
-            <h5>By: {this.state.recipe.publisher}</h5>
-            <p>{this.state.recipe.ingredients}</p>
+            <figure className="img__container">
+              <img
+                src={this.state.recipe.image_url}
+                alt={this.state.recipe.title}
+                className="recipe__details__image"
+              />
+            </figure>
+            <div className="recipe__details__container">
+              <h3>{this.state.recipe.title}</h3>
+              <h5 className="font__kepler">
+                Source: {this.state.recipe.publisher}
+              </h5>
+              <p>{this.state.recipe.ingredients}</p>
+            </div>
           </div>
         </div>
       </div>
