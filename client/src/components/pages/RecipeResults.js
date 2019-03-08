@@ -2,27 +2,35 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Recipe from '../Recipe';
+import { getRecipe } from '../../actions/recipeActions';
 
 class RecipeResults extends Component {
   constructor() {
     super();
     this.state = {
       recipes: [],
+      recipe: {},
     };
 
     this.onScroll = this.onScroll.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.recipes) {
-      this.setState({
-        recipes: nextProps.recipes,
-      });
-    }
+    console.log(nextProps);
+    this.setState(prevState => ({
+      ...prevState,
+      recipes: nextProps.recipes,
+      recipe: nextProps.recipe,
+    }));
   }
 
   onScroll(e) {
     document.querySelector('.recipe__container').scrollTop = e.target - 10;
+  }
+
+  onClick(id) {
+    this.props.getRecipe(id);
   }
 
   render() {
@@ -33,11 +41,23 @@ class RecipeResults extends Component {
           <div className="recipe__scrollbar">
             <ul className="recipe__results" onScroll={this.onScroll}>
               {this.state.recipes.map(recipe => (
-                <Recipe recipe={recipe} />
+                <Recipe
+                  recipe={recipe}
+                  key={recipe.recipe_id}
+                  onClick={this.onClick}
+                />
               ))}
             </ul>
           </div>
-          <div className="recipe__details">Test</div>
+          <div className="recipe__details">
+            <img
+              src={this.state.recipe.image_url}
+              alt={this.state.recipe.title}
+            />
+            <h3>{this.state.recipe.title}</h3>
+            <h5>By: {this.state.recipe.publisher}</h5>
+            <p>{this.state.recipe.ingredients}</p>
+          </div>
         </div>
       </div>
     );
@@ -45,7 +65,11 @@ class RecipeResults extends Component {
 }
 
 const mapStateToProps = state => ({
-  recipes: state.recipes,
+  recipes: state.recipes.recipes,
+  recipe: state.recipes.recipe,
 });
 
-export default connect(mapStateToProps)(RecipeResults);
+export default connect(
+  mapStateToProps,
+  { getRecipe }
+)(RecipeResults);

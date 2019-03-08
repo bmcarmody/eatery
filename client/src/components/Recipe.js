@@ -2,8 +2,12 @@ import React from 'react';
 
 const Recipe = props => {
   return (
-    <li key={props.recipe.recipe_id} className="recipe__item">
-      <a className="recipe__results__link" href={`#${props.recipe.recipe_id}`}>
+    <li className="recipe__item">
+      <a
+        className="recipe__results__link"
+        href={`#${props.recipe.recipe_id}`}
+        onClick={() => props.onClick(props.recipe.recipe_id)}
+      >
         <figure className="recipe__results__fig">
           <img src={props.recipe.image_url} alt={props.recipe.title} />
         </figure>
