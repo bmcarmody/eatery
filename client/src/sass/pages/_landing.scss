@@ -21,23 +21,23 @@
     margin-bottom: 1rem;
   }
 
-  &__search {
-    width: 50rem;
-    height: 5rem;
-    font-size: 2.5rem;
-    padding-left: 1rem;
-    border-radius: 1px;
-    border: none;
-
-    &:focus {
-      outline: none;
-      border: 2px solid $color-primary;
-      padding-left: 8px;
-    }
-  }
-
   &__field {
     position: relative;
+
+    input {
+      width: 50rem;
+      height: 5rem;
+      font-size: 2.5rem;
+      padding-left: 1rem;
+      border-radius: 1px;
+      border: none;
+
+      &:focus {
+        outline: none;
+        border: 2px solid $color-primary;
+        padding-left: 8px;
+      }
+    }
 
     button {
       position: absolute;

@@ -3,8 +3,7 @@ import { GENERATE_RECIPES, GET_RECIPE } from '../actions/types';
 import { API_KEY } from '../keys.json';
 
 // Get recipes once the search button is clicked
-export const generateRecipes = (query, history) => dispatch => {
-  history.push('/recipes');
+export const generateRecipes = query => dispatch => {
   axios
     .get(`https://www.food2fork.com/api/search?key=${API_KEY}&q=${query}`)
     .then(res => {

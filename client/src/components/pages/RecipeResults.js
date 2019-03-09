@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Recipe from '../Recipe';
+import Search from '../Search';
 import { getRecipe } from '../../actions/recipeActions';
 
 class RecipeResults extends Component {
@@ -17,7 +18,6 @@ class RecipeResults extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     this.setState(prevState => ({
       ...prevState,
       recipes: nextProps.recipes,
@@ -35,38 +35,41 @@ class RecipeResults extends Component {
 
   render() {
     return (
-      <div className="recipe">
-        <div className="recipe__background-image" />
-        <div className="recipe__container">
-          <div className="recipe__scrollbar">
-            <ul className="recipe__results" onScroll={this.onScroll}>
-              {this.state.recipes.map(recipe => (
-                <Recipe
-                  recipe={recipe}
-                  key={recipe.recipe_id}
-                  onClick={this.onClick}
+      <React.Fragment>
+        <Search />
+        <div className="recipe">
+          <div className="recipe__background-image" />
+          <div className="recipe__container">
+            <div className="recipe__scrollbar">
+              <ul className="recipe__results" onScroll={this.onScroll}>
+                {this.state.recipes.map(recipe => (
+                  <Recipe
+                    recipe={recipe}
+                    key={recipe.recipe_id}
+                    onClick={this.onClick}
+                  />
+                ))}
+              </ul>
+            </div>
+            <div className="recipe__details">
+              <figure className="img__container">
+                <img
+                  src={this.state.recipe.image_url}
+                  alt={this.state.recipe.title}
+                  className="recipe__details__image"
                 />
-              ))}
-            </ul>
-          </div>
-          <div className="recipe__details">
-            <figure className="img__container">
-              <img
-                src={this.state.recipe.image_url}
-                alt={this.state.recipe.title}
-                className="recipe__details__image"
-              />
-            </figure>
-            <div className="recipe__details__container">
-              <h3>{this.state.recipe.title}</h3>
-              <h5 className="font__kepler">
-                Source: {this.state.recipe.publisher}
-              </h5>
-              <p>{this.state.recipe.ingredients}</p>
+              </figure>
+              <div className="recipe__details__container">
+                <h3>{this.state.recipe.title}</h3>
+                <h5 className="font__kepler">
+                  Source: {this.state.recipe.publisher}
+                </h5>
+                <p>{this.state.recipe.ingredients}</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
