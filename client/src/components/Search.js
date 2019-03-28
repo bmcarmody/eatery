@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { generateRecipes } from '../actions/recipeActions';
+import { fetchRecipes, generateRecipes } from '../actions/recipeActions';
 
 class Search extends Component {
   constructor() {
@@ -23,6 +23,7 @@ class Search extends Component {
   onClick(e) {
     e.preventDefault();
     this.props.history.push('/recipes');
+    this.props.fetchRecipes();
     this.props.generateRecipes(this.state.searchQuery);
   }
 
@@ -37,7 +38,7 @@ class Search extends Component {
           onChange={this.onChange}
         />
         <button onClick={this.onClick}>
-          <i className="fas fa-arrow-right" />
+          <i className="fas fa-search" />
         </button>
       </React.Fragment>
     );
@@ -50,5 +51,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { generateRecipes }
+  { fetchRecipes, generateRecipes }
 )(withRouter(Search));

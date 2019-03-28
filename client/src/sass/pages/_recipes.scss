@@ -60,12 +60,12 @@
       }
 
       button {
-        font-size: 3rem;
+        font-size: 2.5rem;
         background: none;
         border: none;
         position: absolute;
-        top: 0.25rem;
-        right: 0.75rem;
+        top: 0.5rem;
+        right: 1rem;
 
         &:focus,
         &:active {
@@ -158,8 +158,11 @@
   }
 }
 
-.no__results__found {
+.center-item {
   text-align: center;
+}
+
+.no__results__found {
   h1 {
     font-size: 7.5rem;
     font-family: house-script, sans-serif;
