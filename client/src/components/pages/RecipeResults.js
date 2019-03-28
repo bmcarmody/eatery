@@ -36,37 +36,60 @@ class RecipeResults extends Component {
   render() {
     return (
       <React.Fragment>
-        <Search />
+        <div className="recipe__searchbar">
+          <div className="recipe__searchbar__container">
+            <Search />
+          </div>
+        </div>
         <div className="recipe">
           <div className="recipe__background-image" />
           <div className="recipe__container">
-            <div className="recipe__scrollbar">
-              <ul className="recipe__results" onScroll={this.onScroll}>
-                {this.state.recipes.map(recipe => (
-                  <Recipe
-                    recipe={recipe}
-                    key={recipe.recipe_id}
-                    onClick={this.onClick}
-                  />
-                ))}
-              </ul>
-            </div>
-            <div className="recipe__details">
-              <figure className="img__container">
-                <img
-                  src={this.state.recipe.image_url}
-                  alt={this.state.recipe.title}
-                  className="recipe__details__image"
-                />
-              </figure>
-              <div className="recipe__details__container">
-                <h3>{this.state.recipe.title}</h3>
-                <h5 className="font__kepler">
-                  Source: {this.state.recipe.publisher}
-                </h5>
-                <p>{this.state.recipe.ingredients}</p>
+            {this.state.recipes[0] ? (
+              <React.Fragment>
+                <div className="recipe__scrollbar">
+                  <ul className="recipe__results" onScroll={this.onScroll}>
+                    {this.state.recipes.map(recipe => (
+                      <Recipe
+                        recipe={recipe}
+                        key={recipe.recipe_id}
+                        onClick={this.onClick}
+                      />
+                    ))}
+                  </ul>
+                </div>
+                <div className="recipe__details">
+                  {this.state.recipe.title && (
+                    <div>
+                      <figure className="img__container">
+                        <img
+                          src={this.state.recipe.image_url}
+                          alt={this.state.recipe.title}
+                          className="recipe__details__image"
+                        />
+                      </figure>
+                      <div className="recipe__details__container">
+                        <h3>{this.state.recipe.title}</h3>
+                        <h5 className="font__kepler">
+                          Source: {this.state.recipe.publisher}
+                        </h5>
+                        <ol>
+                          {this.state.recipe.ingredients.map(
+                            (ingredient, index) => (
+                              <li key={index}>{ingredient}</li>
+                            )
+                          )}
+                        </ol>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </React.Fragment>
+            ) : (
+              <div className="no__results__found">
+                <h1>No recipes found</h1>
+                <p className="font__kepler">Please try another search</p>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </React.Fragment>

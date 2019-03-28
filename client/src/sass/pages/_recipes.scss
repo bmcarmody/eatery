@@ -1,5 +1,5 @@
 .recipe {
-  height: calc(100vh - 9rem);
+  height: calc(100vh - 25rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,6 +37,42 @@
 
     &:last-child {
       border: none;
+    }
+  }
+
+  &__searchbar {
+    height: 10rem;
+    &__container {
+      position: relative;
+      width: 50rem;
+
+      input {
+        padding: 1rem;
+        width: 50rem;
+        height: 4rem;
+        font-size: 2rem;
+
+        &:focus {
+          outline: none;
+          border: 2px solid $color-primary;
+          padding-left: 1rem;
+        }
+      }
+
+      button {
+        font-size: 3rem;
+        background: none;
+        border: none;
+        position: absolute;
+        top: 0.25rem;
+        right: 0.75rem;
+
+        &:focus,
+        &:active {
+          outline: none;
+          color: $color-primary;
+        }
+      }
     }
   }
 
@@ -111,14 +147,28 @@
       }
 
       h5 {
-        float: right;
         font-size: 2rem;
       }
 
-      p {
-        clear: both;
-        font-size: 1rem;
+      ol {
+        padding: 2rem;
+        font-size: 2rem;
       }
     }
+  }
+}
+
+.no__results__found {
+  text-align: center;
+  h1 {
+    font-size: 7.5rem;
+    font-family: house-script, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: $color-primary !important;
+  }
+
+  p {
+    font-size: 3rem;
   }
 }

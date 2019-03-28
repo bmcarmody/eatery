@@ -98,18 +98,28 @@ main {
   }
 }
 
+.recipe__searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .recipe {
   &__container {
     display: grid;
     grid-template-columns: 2fr 3fr;
-    grid-template-areas: 'recipes details';
+    grid-template-areas: 'recipes details' 'no-results no-results';
   }
 
-  &__bar {
+  &__scrollbar {
     grid-area: recipes;
   }
 
   &__details {
     grid-area: details;
+  }
+
+  .no__results__found {
+    grid-area: no-results;
   }
 }
