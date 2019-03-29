@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 
 import Recipe from '../Recipe';
 import Search from '../Search';
-import { fetchRecipe, getRecipe } from '../../actions/recipeActions';
+import { fetchRecipe, getRecipe, getPage } from '../../actions/recipeActions';
+import LoadingAnimation from '../LoadingAnimation';
+import PaginationButtons from '../PaginationButtons';
 
 class RecipeResults extends Component {
   constructor() {
@@ -15,6 +17,7 @@ class RecipeResults extends Component {
 
     this.onScroll = this.onScroll.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.getNextPage = this.getNextPage.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -34,6 +37,10 @@ class RecipeResults extends Component {
     this.props.getRecipe(id);
   }
 
+  getNextPage(query, page) {
+    this.props.getPage(query, page);
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -47,17 +54,7 @@ class RecipeResults extends Component {
           <div className="recipe__container">
             {this.props.isFetchingRecipes ? (
               <div className="center-item">
-                <div class="lds-grid">
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                </div>
+                <LoadingAnimation />
               </div>
             ) : (
               <React.Fragment>
@@ -72,22 +69,15 @@ class RecipeResults extends Component {
                             onClick={this.onClick}
                           />
                         ))}
+                        <li>
+                          <PaginationButtons getNextPage={this.getNextPage} />
+                        </li>
                       </ul>
                     </div>
                     <div className="recipe__details">
                       {this.props.isFetchingRecipe ? (
                         <div className="recipe__loading">
-                          <div class="lds-grid">
-                            <div />
-                            <div />
-                            <div />
-                            <div />
-                            <div />
-                            <div />
-                            <div />
-                            <div />
-                            <div />
-                          </div>
+                          <LoadingAnimation />
                         </div>
                       ) : (
                         <React.Fragment>
@@ -105,13 +95,13 @@ class RecipeResults extends Component {
                                 <h5 className="font__kepler">
                                   Source: {this.state.recipe.publisher}
                                 </h5>
-                                <ol>
+                                <ul>
                                   {this.state.recipe.ingredients.map(
                                     (ingredient, index) => (
                                       <li key={index}>{ingredient}</li>
                                     )
                                   )}
-                                </ol>
+                                </ul>
                               </div>
                             </div>
                           )}
@@ -143,5 +133,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchRecipe, getRecipe }
+  { fetchRecipe, getRecipe, getPage }
 )(RecipeResults);

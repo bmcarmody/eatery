@@ -3,6 +3,7 @@ import {
   GENERATE_RECIPES,
   REQUEST_RECIPE,
   GET_RECIPE,
+  SET_SEARCH_QUERY,
 } from '../actions/types';
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   recipe: {},
   isFetchingRecipes: false,
   isFetchingRecipe: false,
+  searchQuery: '',
 };
 
 export default function(state = initialState, action) {
@@ -35,6 +37,11 @@ export default function(state = initialState, action) {
         ...state,
         isFetchingRecipe: false,
         recipe: action.payload.data.recipe,
+      };
+    case SET_SEARCH_QUERY:
+      return {
+        ...state,
+        searchQuery: action.payload,
       };
     default:
       return state;
