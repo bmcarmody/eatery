@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchRecipes, generateRecipes } from '../actions/recipeActions';
+import { generateRecipes, setPage } from '../actions/recipeActions';
 
 class Search extends Component {
   constructor() {
@@ -23,7 +23,7 @@ class Search extends Component {
   onClick(e) {
     e.preventDefault();
     this.props.history.push('/recipes');
-    this.props.fetchRecipes();
+    this.props.setPage(1);
     this.props.generateRecipes(this.state.searchQuery);
   }
 
@@ -51,5 +51,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchRecipes, generateRecipes }
+  { generateRecipes, setPage }
 )(withRouter(Search));

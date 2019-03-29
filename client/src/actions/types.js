@@ -5,3 +5,4 @@ export const GET_RECIPE = 'GET_RECIPE';
 export const REQUEST_RECIPES = 'REQUEST_RECIPES';
 export const REQUEST_RECIPE = 'REQUEST_RECIPE';
 export const SET_SEARCH_QUERY = 'SET_SEARCH_QUERY';
+export const SET_PAGE = 'SET_PAGE';

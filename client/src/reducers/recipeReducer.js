@@ -4,6 +4,7 @@ import {
   REQUEST_RECIPE,
   GET_RECIPE,
   SET_SEARCH_QUERY,
+  SET_PAGE,
 } from '../actions/types';
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   isFetchingRecipes: false,
   isFetchingRecipe: false,
   searchQuery: '',
+  page: 1,
 };
 
 export default function(state = initialState, action) {
@@ -43,6 +45,8 @@ export default function(state = initialState, action) {
         ...state,
         searchQuery: action.payload,
       };
+    case SET_PAGE:
+      return { ...state, page: action.payload };
     default:
       return state;
   }

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { getPage, setPage } from '../actions/recipeActions';
+
 class PaginationButtons extends Component {
   constructor() {
     super();
     this.state = {
-      page: 1,
+      statePage: 1,
     };
 
     this.onClick = this.onClick.bind(this);
@@ -13,22 +15,23 @@ class PaginationButtons extends Component {
 
   async onClick(e) {
     if (e.target.className === 'prev') {
-      await this.setState(prevState => ({
-        page: prevState.page - 1,
-      }));
+      await this.props.setPage(this.props.page - 1);
     } else {
-      await this.setState(prevState => ({
-        page: prevState.page + 1,
-      }));
+      await this.props.setPage(this.props.page + 1);
     }
 
-    this.props.getNextPage(this.props.searchQuery, this.state.page);
+    this.props.getPage(this.props.searchQuery, this.props.page);
   }
 
   render() {
     return (
       <div>
-        {this.state.page !== 1 && <button className="prev">Previous</button>}
+        {this.props.page !== 1 && (
+          <button className="prev" onClick={this.onClick}>
+            Previous
+          </button>
+        )}
+        {console.log(this.state.page)}
         <button className="next" onClick={this.onClick}>
           Next
         </button>
@@ -39,6 +42,10 @@ class PaginationButtons extends Component {
 
 const mapStateToProps = state => ({
   searchQuery: state.recipes.searchQuery,
+  page: state.recipes.page,
 });
 
-export default connect(mapStateToProps)(PaginationButtons);
+export default connect(
+  mapStateToProps,
+  { getPage, setPage }
+)(PaginationButtons);

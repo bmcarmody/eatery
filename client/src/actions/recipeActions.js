@@ -5,15 +5,12 @@ import {
   REQUEST_RECIPE,
   GET_RECIPE,
   SET_SEARCH_QUERY,
+  SET_PAGE,
 } from '../actions/types';
 import { API_KEY } from '../keys.json';
 
-// Get recipes once the search button is clicked
-export const fetchRecipes = () => dispatch => {
-  dispatch({ type: REQUEST_RECIPES });
-};
-
 export const generateRecipes = query => dispatch => {
+  dispatch({ type: REQUEST_RECIPES });
   axios
     .get(`https://www.food2fork.com/api/search?key=${API_KEY}&q=${query}`)
     .then(res => {
@@ -23,11 +20,8 @@ export const generateRecipes = query => dispatch => {
     .catch(err => console.log(err));
 };
 
-export const fetchRecipe = () => dispatch => {
-  dispatch({ type: REQUEST_RECIPE });
-};
-
 export const getRecipe = id => dispatch => {
+  dispatch({ type: REQUEST_RECIPE });
   axios
     .get(`https://www.food2fork.com/api/get?key=${API_KEY}&rId=${id}`)
     .then(res => {
@@ -37,6 +31,7 @@ export const getRecipe = id => dispatch => {
 };
 
 export const getPage = (query, page) => dispatch => {
+  dispatch({ type: REQUEST_RECIPES });
   axios
     .get(
       `https://www.food2fork.com/api/search?key=${API_KEY}&q=${query}&page=${page}`
@@ -46,4 +41,8 @@ export const getPage = (query, page) => dispatch => {
       dispatch({ type: GENERATE_RECIPES, payload: res });
     })
     .catch(err => console.log(err));
+};
+
+export const setPage = page => dispatch => {
+  dispatch({ type: SET_PAGE, payload: page });
 };

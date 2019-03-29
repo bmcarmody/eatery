@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import Recipe from '../Recipe';
 import Search from '../Search';
-import { fetchRecipe, getRecipe, getPage } from '../../actions/recipeActions';
+import { getRecipe } from '../../actions/recipeActions';
 import LoadingAnimation from '../LoadingAnimation';
 import PaginationButtons from '../PaginationButtons';
 
@@ -17,7 +17,6 @@ class RecipeResults extends Component {
 
     this.onScroll = this.onScroll.bind(this);
     this.onClick = this.onClick.bind(this);
-    this.getNextPage = this.getNextPage.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -33,12 +32,7 @@ class RecipeResults extends Component {
   }
 
   onClick(id) {
-    this.props.fetchRecipe();
     this.props.getRecipe(id);
-  }
-
-  getNextPage(query, page) {
-    this.props.getPage(query, page);
   }
 
   render() {
@@ -133,5 +127,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchRecipe, getRecipe, getPage }
+  { getRecipe }
 )(RecipeResults);
