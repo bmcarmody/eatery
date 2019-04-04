@@ -14,6 +14,7 @@ import Landing from './components/pages/Landing';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import RecipeResults from './components/pages/RecipeResults';
+import SavedRecipes from './components/pages/SavedRecipes';
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -44,6 +45,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/recipes" component={RecipeResults} />
+            <Route exact path="/myrecipes" component={SavedRecipes} />
           </div>
         </Router>
       </Provider>

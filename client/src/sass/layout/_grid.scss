@@ -12,17 +12,12 @@
 
   &__link {
     align-self: center;
-    &--login {
+    &--first {
       grid-column: col-start 11 / span 1;
       grid-row: 1;
     }
 
-    &--register {
-      grid-column: col-start 12 / span 1;
-      grid-row: 1;
-    }
-
-    &--logout {
+    &--last {
       grid-column: col-start 12 / span 1;
       grid-row: 1;
     }

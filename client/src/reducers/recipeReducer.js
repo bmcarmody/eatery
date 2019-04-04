@@ -5,6 +5,7 @@ import {
   GET_RECIPE,
   SET_SEARCH_QUERY,
   SET_PAGE,
+  FETCH_SAVED_RECIPES,
 } from '../actions/types';
 
 const initialState = {
@@ -47,6 +48,12 @@ export default function(state = initialState, action) {
       };
     case SET_PAGE:
       return { ...state, page: action.payload };
+    case FETCH_SAVED_RECIPES:
+      return {
+        ...state,
+        isFetchingRecipes: false,
+        recipes: action.payload.data,
+      };
     default:
       return state;
   }

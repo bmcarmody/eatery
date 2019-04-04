@@ -6,6 +6,7 @@ import {
   GET_RECIPE,
   SET_SEARCH_QUERY,
   SET_PAGE,
+  FETCH_SAVED_RECIPES,
 } from '../actions/types';
 import { API_KEY } from '../keys.json';
 
@@ -54,4 +55,10 @@ export const saveRecipe = recipeData => dispatch => {
       console.log(res);
     })
     .catch(err => console.log(err));
+};
+
+export const fetchRecipes = () => dispatch => {
+  axios.get('/api/recipes/fetch-recipes').then(res => {
+    dispatch({ type: FETCH_SAVED_RECIPES, payload: res });
+  });
 };

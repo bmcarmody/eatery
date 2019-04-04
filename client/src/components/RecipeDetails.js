@@ -13,10 +13,10 @@ class RecipeDetails extends Component {
 
   saveRecipe() {
     const recipeData = {
-      id: this.props.recipe.recipe_id,
+      recipe_id: this.props.recipe.recipe_id,
       title: this.props.recipe.title,
       publisher: this.props.recipe.publisher,
-      img_url: this.props.recipe.image_url,
+      image_url: this.props.recipe.image_url,
     };
 
     this.props.saveRecipe(recipeData);

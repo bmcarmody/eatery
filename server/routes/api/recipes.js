@@ -17,18 +17,17 @@ router.get('/test', (req, res) =>
 // @route   POST api/recipes/save
 // @desc    Save a recipe to the database
 // @access  Private
-// router.post('/save', (req, res) => {
 router.post(
   '/save',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    const { id, title, publisher, img_url } = req.body;
+    const { recipe_id, title, publisher, image_url } = req.body;
     const newRecipe = {
-      _id: id,
+      recipe_id,
       users: [{ _id: req.user.id }],
       title,
       publisher,
-      img_url,
+      image_url,
     };
 
     Recipe.findOne({ _id: newRecipe._id }).then(recipe => {
@@ -37,6 +36,19 @@ router.post(
         res.json(recipe);
       }
       new Recipe(newRecipe).save().then(recipeSave => res.json(recipeSave));
+    });
+  }
+);
+
+// @route   GET api/recipes/fetch-recipes
+// @desc    Fetch all recipes that user has saved
+// @access  Private
+router.get(
+  '/fetch-recipes',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Recipe.find({ users: { _id: req.user.id } }).then(recipes => {
+      res.send(recipes);
     });
   }
 );

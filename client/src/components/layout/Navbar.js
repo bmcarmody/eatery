@@ -14,10 +14,18 @@ export class Navbar extends Component {
 
     const authLinks = (
       <React.Fragment>
+        <NavLink
+          className="nav__link nav__link--first"
+          activeClassName="nav--selected"
+          exact
+          to="/myrecipes"
+        >
+          My Recipes
+        </NavLink>
         <a
           href="#nav"
           onClick={this.onLogoutClick.bind(this)}
-          className="nav__link nav__link--logout"
+          className="nav__link nav__link--last"
         >
           Logout
         </a>
@@ -27,7 +35,7 @@ export class Navbar extends Component {
     const guestLinks = (
       <React.Fragment>
         <NavLink
-          className="nav__link nav__link--login"
+          className="nav__link nav__link--first"
           activeClassName="nav--selected"
           exact
           to="/login"
@@ -35,7 +43,7 @@ export class Navbar extends Component {
           Login
         </NavLink>
         <NavLink
-          className="nav__link nav__link--register"
+          className="nav__link nav__link--last"
           activeClassName="nav--selected"
           exact
           to="/register"
