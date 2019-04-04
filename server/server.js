@@ -6,19 +6,17 @@ const passport = require('passport');
 
 // Imported Routes
 const users = require('./routes/api/users');
+const recipes = require('./routes/api/recipes');
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const db = require('./db/keys').mongoURI;
+const db = require('./config/keys').mongoURI;
 
 // Connect to MongoDB
 mongoose
-  .connect(
-    db,
-    { useNewUrlParser: true }
-  )
+  .connect(db, { useNewUrlParser: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
@@ -26,13 +24,14 @@ mongoose.set('useCreateIndex', true); // Fixes deprecation warnings
 mongoose.set('useFindAndModify', false);
 
 // Passport middleware
-//app.use(passport.initialize());
+app.use(passport.initialize());
 
 // Passport Config
-//require('./config/passport')(passport);
+require('./config/passport')(passport);
 
 // API Routes
 app.use('/api/users', users);
+app.use('/api/recipes', recipes);
 
 const port = process.env.PORT || 5000;
 

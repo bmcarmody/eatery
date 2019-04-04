@@ -6,15 +6,13 @@ import { getPage, setPage } from '../actions/recipeActions';
 class PaginationButtons extends Component {
   constructor() {
     super();
-    this.state = {
-      statePage: 1,
-    };
+    this.state = {};
 
     this.onClick = this.onClick.bind(this);
   }
 
   async onClick(e) {
-    if (e.target.className === 'prev') {
+    if (e.target.className === 'pagination--prev') {
       await this.props.setPage(this.props.page - 1);
     } else {
       await this.props.setPage(this.props.page + 1);
@@ -25,14 +23,21 @@ class PaginationButtons extends Component {
 
   render() {
     return (
-      <div>
-        {this.props.page !== 1 && (
-          <button className="prev" onClick={this.onClick}>
+      <div className="pagination">
+        {this.props.page !== 1 ? (
+          <button
+            className="pagination--prev"
+            onClick={this.onClick}
+          >
             Previous
           </button>
+        ) : (
+          <div className="pagination--placeholder" />
         )}
-        {console.log(this.state.page)}
-        <button className="next" onClick={this.onClick}>
+        <button
+          className="pagination--next"
+          onClick={this.onClick}
+        >
           Next
         </button>
       </div>

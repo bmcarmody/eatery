@@ -37,7 +37,6 @@ export const getPage = (query, page) => dispatch => {
       `https://www.food2fork.com/api/search?key=${API_KEY}&q=${query}&page=${page}`
     )
     .then(res => {
-      console.log(res);
       dispatch({ type: GENERATE_RECIPES, payload: res });
     })
     .catch(err => console.log(err));

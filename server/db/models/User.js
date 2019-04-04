@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const uniqueValidator = require('mongoose-unique-validator');
 
-const keys = require('../keys');
+const keys = require('../../config/keys');
 
 const Schema = mongoose.Schema;
 

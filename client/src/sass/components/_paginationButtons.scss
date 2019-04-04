@@ -1,0 +1,23 @@
+.pagination {
+  height: 7.5rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+  &--prev,
+  &--next {
+    height: 4.5rem;
+    background-color: $color-primary;
+    color: $color-white;
+    padding: 1rem;
+    width: fit-content;
+    font-size: 2rem;
+    border-radius: 0.5rem;
+    &:active {
+      outline: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
