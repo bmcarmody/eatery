@@ -45,3 +45,13 @@ export const getPage = (query, page) => dispatch => {
 export const setPage = page => dispatch => {
   dispatch({ type: SET_PAGE, payload: page });
 };
+
+// Register User
+export const saveRecipe = recipeData => dispatch => {
+  axios
+    .post('/api/recipes/save', recipeData)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => console.log(err));
+};

@@ -18,7 +18,7 @@ router.get('/test', (req, res) =>
 // @desc    Save a recipe to the database
 // @access  Private
 // router.post('/save', (req, res) => {
-router.get(
+router.post(
   '/save',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
