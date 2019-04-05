@@ -8,7 +8,7 @@ import {
   SET_PAGE,
   FETCH_SAVED_RECIPES,
 } from '../actions/types';
-import { API_KEY } from '../keys.json';
+import { API_KEY } from '../../keys.json';
 
 export const generateRecipes = query => dispatch => {
   dispatch({ type: REQUEST_RECIPES });

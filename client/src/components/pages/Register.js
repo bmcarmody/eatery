@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import RegisterForm from '../molecules/Forms/RegisterForm';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { registerUser } from '../../actions/authActions';
+import { registerUser } from '../../redux/actions/authActions';
 
 class Register extends Component {
   constructor() {

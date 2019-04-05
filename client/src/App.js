@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store/store';
+import store from './redux/store/store';
 
 import setAuthToken from './utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
-import { setCurrentUser, logoutUser } from './actions/authActions';
+import { setCurrentUser, logoutUser } from './redux/actions/authActions';
 
 import Navbar from './components/molecules/Navbar';
 import Home from './components/pages/Home';

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import Recipe from '../atoms/Recipe';
 import PaginationButtons from '../molecules/PaginationButtons';
-import { getRecipe } from '../../actions/recipeActions';
+import { getRecipe } from '../../redux/actions/recipeActions';
 
 class RecipeSidebar extends Component {
   constructor() {

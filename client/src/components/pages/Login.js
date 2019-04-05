@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import LoginForm from '../molecules/Forms/LoginForm';
 import { connect } from 'react-redux';
-import { loginUser } from '../../actions/authActions';
+import { loginUser } from '../../redux/actions/authActions';
 
 class Login extends Component {
   constructor() {

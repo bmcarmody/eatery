@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getPage, setPage } from '../../actions/recipeActions';
+import { getPage, setPage } from '../../redux/actions/recipeActions';
 
 class PaginationButtons extends Component {
   constructor() {

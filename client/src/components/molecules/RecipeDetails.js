@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import LoadingAnimation from '../atoms/LoadingAnimation';
 
-import { saveRecipe } from '../../actions/recipeActions';
+import { saveRecipe } from '../../redux/actions/recipeActions';
 
 class RecipeDetails extends Component {
   constructor() {

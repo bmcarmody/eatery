@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { generateRecipes, setPage } from '../../actions/recipeActions';
+import { generateRecipes, setPage } from '../../redux/actions/recipeActions';
 
 class Searchbar extends Component {
   constructor() {

@@ -5,7 +5,7 @@ import LoadingAnimation from '../atoms/LoadingAnimation';
 import RecipeSidebar from '../organisms/RecipeSidebar';
 import RecipeDetails from '../molecules/RecipeDetails';
 
-import { fetchRecipes } from '../../actions/recipeActions';
+import { fetchRecipes } from '../../redux/actions/recipeActions';
 
 class SavedRecipes extends Component {
   constructor() {
