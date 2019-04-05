@@ -10,7 +10,7 @@ import jwt_decode from 'jwt-decode';
 import { setCurrentUser, logoutUser } from './actions/authActions';
 
 import Navbar from './molecules/Navbar';
-import Landing from './components/pages/Landing';
+import HomePage from './pages/HomePage';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import RecipeResults from './components/pages/RecipeResults';
@@ -41,7 +41,7 @@ class App extends Component {
           <div>
             <Navbar />
 
-            <Route exact path="/" component={Landing} />
+            <Route exact path="/" component={HomePage} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/recipes" component={RecipeResults} />

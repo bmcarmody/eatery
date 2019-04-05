@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { generateRecipes, setPage } from '../actions/recipeActions';
 
-class Search extends Component {
+class Searchbar extends Component {
   constructor() {
     super();
     this.state = {
@@ -52,4 +52,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { generateRecipes, setPage }
-)(withRouter(Search));
+)(withRouter(Searchbar));

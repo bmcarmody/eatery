@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Search from '../Search';
+import Searchbar from '../../molecules/Searchbar';
 import LoadingAnimation from '../LoadingAnimation';
 import RecipeSidebar from '../RecipeSidebar';
 import RecipeDetails from '../RecipeDetails';
@@ -21,7 +21,7 @@ class RecipeResults extends Component {
       <React.Fragment>
         <div className="recipe__searchbar">
           <div className="recipe__searchbar__container">
-            <Search />
+            <Searchbar />
           </div>
         </div>
         <div className="recipe">
