@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Form from '../Form';
+import RegisterForm from '../molecules/Forms/RegisterForm';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
@@ -53,8 +53,7 @@ class Register extends Component {
     return (
       <main>
         <div className="login__image" />
-        <Form
-          register="true"
+        <RegisterForm
           onChange={this.onChange}
           onSubmit={this.onSubmit}
           errors={this.state.errors}

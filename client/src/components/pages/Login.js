@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Form from '../Form';
+import LoginForm from '../molecules/Forms/LoginForm';
 import { connect } from 'react-redux';
 import { loginUser } from '../../actions/authActions';
 
@@ -52,7 +52,7 @@ class Login extends Component {
     return (
       <main>
         <div className="login__image" />
-        <Form
+        <LoginForm
           onSubmit={this.onSubmit}
           onChange={this.onChange}
           errors={this.state.errors}

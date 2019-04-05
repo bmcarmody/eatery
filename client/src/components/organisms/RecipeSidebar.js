@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Recipe from './Recipe';
-import PaginationButtons from './PaginationButtons';
-import { getRecipe } from '../actions/recipeActions';
+import Recipe from '../atoms/Recipe';
+import PaginationButtons from '../molecules/PaginationButtons';
+import { getRecipe } from '../../actions/recipeActions';
 
 class RecipeSidebar extends Component {
   constructor() {

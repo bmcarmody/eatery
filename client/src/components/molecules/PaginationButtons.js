@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getPage, setPage } from '../actions/recipeActions';
+import { getPage, setPage } from '../../actions/recipeActions';
 
 class PaginationButtons extends Component {
   constructor() {
@@ -25,19 +25,13 @@ class PaginationButtons extends Component {
     return (
       <div className="pagination">
         {this.props.page !== 1 ? (
-          <button
-            className="pagination--prev"
-            onClick={this.onClick}
-          >
+          <button className="pagination--prev" onClick={this.onClick}>
             Previous
           </button>
         ) : (
           <div className="pagination--placeholder" />
         )}
-        <button
-          className="pagination--next"
-          onClick={this.onClick}
-        >
+        <button className="pagination--next" onClick={this.onClick}>
           Next
         </button>
       </div>

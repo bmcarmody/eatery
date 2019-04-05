@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import LoadingAnimation from '../LoadingAnimation';
-import RecipeSidebar from '../RecipeSidebar';
-import RecipeDetails from '../RecipeDetails';
+import LoadingAnimation from '../atoms/LoadingAnimation';
+import RecipeSidebar from '../organisms/RecipeSidebar';
+import RecipeDetails from '../molecules/RecipeDetails';
 
 import { fetchRecipes } from '../../actions/recipeActions';
 

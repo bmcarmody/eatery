@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import LoadingAnimation from './LoadingAnimation';
+import LoadingAnimation from '../atoms/LoadingAnimation';
 
-import { saveRecipe } from '../actions/recipeActions';
+import { saveRecipe } from '../../actions/recipeActions';
 
 class RecipeDetails extends Component {
   constructor() {

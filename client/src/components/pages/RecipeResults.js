@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Searchbar from '../../molecules/Searchbar';
-import LoadingAnimation from '../LoadingAnimation';
-import RecipeSidebar from '../RecipeSidebar';
-import RecipeDetails from '../RecipeDetails';
+import Searchbar from '../molecules/Searchbar';
+import LoadingAnimation from '../atoms/LoadingAnimation';
+import RecipeSidebar from '../organisms/RecipeSidebar';
+import RecipeDetails from '../molecules/RecipeDetails';
 
 class RecipeResults extends Component {
   constructor() {
