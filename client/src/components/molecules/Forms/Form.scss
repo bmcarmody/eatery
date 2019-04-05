@@ -1,0 +1,169 @@
+.card {
+  background-color: white;
+  border-radius: 5px;
+  width: 45rem;
+
+  &--register {
+    height: 57rem;
+  }
+
+  &--login {
+    height: 41rem;
+  }
+}
+
+.form {
+  font-family: house-script, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  &__title {
+    font-size: 4.5rem;
+    margin-top: 1rem;
+
+    &__border {
+      border-top: 1px solid black;
+    }
+  }
+
+  input {
+    outline: none;
+    width: 100%;
+    height: 4rem;
+    font-size: 2rem;
+    border-radius: 3px;
+    border: 1px solid black;
+    padding: 5px;
+
+    &:focus {
+      border: 1px solid $color-primary-dark;
+    }
+  }
+
+  label {
+    font-size: 3rem;
+  }
+
+  hr {
+    margin-top: -13px;
+  }
+
+  &__button {
+    font-family: house-script, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    height: 5rem;
+    border-radius: 7px;
+    background-color: $color-primary;
+    color: white;
+    font-size: 3rem;
+    margin-top: 1.5rem;
+    border: none;
+
+    &:focus,
+    &:hover {
+      outline: none;
+      background-color: darken($color-primary, 5%);
+    }
+
+    &:active {
+      background-color: white;
+      color: $color-primary;
+      border: 2px solid $color-primary;
+    }
+  }
+
+  &__password__label {
+    float: right;
+    font-size: 1.7rem;
+    padding-top: 1rem;
+  }
+
+  &__guide {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 0.6rem;
+    color: $color-primary-grey;
+
+    &--color-fix {
+      color: $color-primary-grey;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__error {
+    font-size: 1.7rem;
+    color: red;
+    float: right;
+    padding-top: 1rem;
+
+    &--red {
+      color: red;
+      label {
+        color: black;
+      }
+      input {
+        border: 1px solid red;
+      }
+    }
+  }
+}
+
+.card {
+  grid-column: col-start 1 / span 12;
+  align-self: center;
+  justify-self: center;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  grid-template-areas:
+    '. title .'
+    'border border border'
+    'name name name'
+    'email email email'
+    'password password password'
+    'cPassword cPassword cPassword'
+    'button button button'
+    'guide guide guide';
+
+  &__title {
+    grid-area: title;
+    justify-self: center;
+
+    &__border {
+      grid-area: border;
+    }
+  }
+
+  &__name {
+    grid-area: name;
+  }
+
+  &__email {
+    grid-area: email;
+  }
+
+  &__password {
+    grid-area: password;
+  }
+
+  &__confirm-password {
+    grid-area: cPassword;
+  }
+
+  &__button {
+    grid-area: button;
+  }
+
+  &__guide {
+    grid-area: guide;
+  }
+}

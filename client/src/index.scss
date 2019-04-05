@@ -4,11 +4,19 @@
 @import './App.scss';
 
 //atoms
+@import './components/atoms/LoadingAnimation.scss';
+@import './components/atoms/Recipe.scss';
 
 //molecules
+@import './components/molecules/Forms/Form.scss';
 @import './components/molecules/Navbar.scss';
+@import './components/molecules/PaginationButtons.scss';
+@import './components/molecules/RecipeDetails.scss';
 
 //organisms
+@import './components/organisms/RecipeSidebar.scss';
 
 //pages
 @import './components/pages/Home.scss';
+@import './components/pages/LoginRegister.scss';
+@import './components/pages/RecipeResults.scss';
