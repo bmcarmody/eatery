@@ -1,7 +1,7 @@
 import React from 'react';
 import Searchbar from '../molecules/Searchbar';
 
-const HomePage = () => {
+const Home = () => {
   return (
     <main>
       <div className="landing__image" />
@@ -15,4 +15,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;
