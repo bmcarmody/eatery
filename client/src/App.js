@@ -9,7 +9,7 @@ import setAuthToken from './utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
 import { setCurrentUser, logoutUser } from './actions/authActions';
 
-import Navbar from './components/layout/Navbar';
+import Navbar from './molecules/Navbar';
 import Landing from './components/pages/Landing';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';

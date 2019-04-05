@@ -25,7 +25,7 @@ class SavedRecipes extends Component {
     return (
       <React.Fragment>
         <div className="recipe">
-          <div className="recipe__background-image" />
+          <div className="saved-recipes__background-image" />
           <div className="recipe__container">
             {this.props.isFetchingRecipes ? (
               <div className="center-item">
