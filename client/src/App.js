@@ -9,8 +9,8 @@ import { setCurrentUser, logoutUser } from './redux/actions/authActions';
 
 import Navbar from './components/molecules/Navbar';
 import Home from './components/pages/Home';
-import Login from './components/pages/Login';
-import Register from './components/pages/Register';
+import Login from './components/pages/Forms/Login';
+import Register from './components/pages/Forms/Register';
 import RecipeResults from './components/pages/RecipeResults';
 import SavedRecipes from './components/pages/SavedRecipes';
 

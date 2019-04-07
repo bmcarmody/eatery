@@ -1,4 +1,4 @@
-.card {
+.form__container {
   background-color: white;
   border-radius: 5px;
   width: 45rem;
@@ -114,7 +114,7 @@
   }
 }
 
-.card {
+.form__container {
   grid-column: col-start 1 / span 12;
   align-self: center;
   justify-self: center;

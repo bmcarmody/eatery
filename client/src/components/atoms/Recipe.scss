@@ -1,15 +1,10 @@
-.recipe__item {
+.recipe {
   border-bottom: 1px solid black;
   padding: 1.5rem;
 
   &:last-child {
     border: none;
   }
-}
-
-.recipe__results {
-  height: 100%;
-  list-style-type: none;
 
   &__fig {
     img {

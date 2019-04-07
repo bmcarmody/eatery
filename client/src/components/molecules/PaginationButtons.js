@@ -12,7 +12,7 @@ class PaginationButtons extends Component {
   }
 
   async onClick(e) {
-    if (e.target.className === 'pagination--prev') {
+    if (e.target.className === 'paginationButtons--prev') {
       await this.props.setPage(this.props.page - 1);
     } else {
       await this.props.setPage(this.props.page + 1);
@@ -23,15 +23,15 @@ class PaginationButtons extends Component {
 
   render() {
     return (
-      <div className="pagination">
+      <div className="paginationButtons">
         {this.props.page !== 1 ? (
-          <button className="pagination--prev" onClick={this.onClick}>
+          <button className="paginationButtons--prev" onClick={this.onClick}>
             Previous
           </button>
         ) : (
-          <div className="pagination--placeholder" />
+          <div className="paginationButtons--placeholder" />
         )}
-        <button className="pagination--next" onClick={this.onClick}>
+        <button className="paginationButtons--next" onClick={this.onClick}>
           Next
         </button>
       </div>

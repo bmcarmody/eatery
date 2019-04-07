@@ -13,20 +13,21 @@ class RecipeResults extends Component {
   }
 
   onScroll(e) {
-    document.querySelector('.recipe__container').scrollTop = e.target - 10;
+    document.querySelector('.recipeResults__container').scrollTop =
+      e.target - 10;
   }
 
   render() {
     return (
       <React.Fragment>
-        <div className="recipe__searchbar">
-          <div className="recipe__searchbar__container">
+        <div className="recipeResults__searchbar">
+          <div className="recipeResults__searchbar__container">
             <Searchbar />
           </div>
         </div>
-        <div className="recipe">
-          <div className="recipe__background-image" />
-          <div className="recipe__container">
+        <div className="recipeResults">
+          <div className="recipeResults__background-image" />
+          <div className="recipeResults__container">
             {this.props.isFetchingRecipes ? (
               <div className="center-item">
                 <LoadingAnimation />

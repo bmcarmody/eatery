@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 const RegisterForm = props => {
   return (
-    <div className="card card--register">
+    <div className="form__container form__container--register">
       <form className="form" onSubmit={props.onSubmit}>
         <h1 className="form__title">Register</h1>
         <div className="form__title__border" />

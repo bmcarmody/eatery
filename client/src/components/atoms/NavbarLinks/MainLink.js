@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 const MainLink = () => {
   return (
     <NavLink
-      className="nav__link nav__title"
-      activeClassName="nav--selected"
+      className="navbar__link navbar__title"
+      activeClassName="navbar--selected"
       exact
       to="/"
     >

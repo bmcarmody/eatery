@@ -17,8 +17,8 @@ class RecipeSidebar extends Component {
 
   render() {
     return (
-      <div className="recipe__scrollbar">
-        <ul className="recipe__results" onScroll={this.props.onScroll}>
+      <div className="recipeSidebar">
+        <ul className="recipeSidebar__results" onScroll={this.props.onScroll}>
           {this.props.recipes.map(recipe => (
             <Recipe
               recipe={recipe}

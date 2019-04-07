@@ -1,4 +1,11 @@
-.recipe__details {
+.recipeDetails {
+  &__loading__animation {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .img__container {
     position: relative;
     width: 100%;
@@ -15,7 +22,7 @@
     transform: translate(-50%, -50%);
   }
 
-  &__container {
+  &__info {
     padding: 2rem;
     h3 {
       font-size: 5rem;
@@ -36,13 +43,6 @@
   }
 }
 
-.recipe__loading {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.recipe__details {
+.recipeDetails {
   grid-area: details;
 }

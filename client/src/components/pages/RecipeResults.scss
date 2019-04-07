@@ -1,4 +1,4 @@
-.recipe {
+.recipeResults {
   height: calc(100vh - 25rem);
   display: flex;
   align-items: center;
@@ -82,7 +82,7 @@
   }
 }
 
-.recipe {
+.recipeResults {
   &__container {
     display: grid;
     grid-template-columns: 2fr 3fr;
@@ -94,7 +94,7 @@
   }
 }
 
-.recipe__searchbar {
+.recipeResults__searchbar {
   display: flex;
   justify-content: center;
   align-items: center;

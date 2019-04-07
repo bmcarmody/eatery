@@ -24,9 +24,9 @@ class RecipeDetails extends Component {
 
   render() {
     return (
-      <div className="recipe__details">
+      <div className="recipeDetails">
         {this.props.isFetchingRecipe ? (
-          <div className="recipe__loading">
+          <div className="recipeDetails__loading__animation">
             <LoadingAnimation />
           </div>
         ) : (
@@ -37,10 +37,10 @@ class RecipeDetails extends Component {
                   <img
                     src={this.props.recipe.image_url}
                     alt={this.props.recipe.title}
-                    className="recipe__details__image"
+                    className="recipeDetails__image"
                   />
                 </figure>
-                <div className="recipe__details__container">
+                <div className="recipeDetails__info">
                   <h3>{this.props.recipe.title}</h3>
                   <h5 className="font__kepler">
                     Source: {this.props.recipe.publisher}

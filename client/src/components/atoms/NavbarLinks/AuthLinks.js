@@ -13,17 +13,17 @@ class AuthLinks extends Component {
     return (
       <React.Fragment>
         <NavLink
-          className="nav__link nav__link--first"
-          activeClassName="nav--selected"
+          className="navbar__link navbar__link--first"
+          activeClassName="navbar--selected"
           exact
           to="/myrecipes"
         >
           My Recipes
         </NavLink>
         <a
-          href="#nav"
+          href="#navbar"
           onClick={this.onLogoutClick.bind(this)}
-          className="nav__link nav__link--last"
+          className="navbar__link navbar__link--last"
         >
           Logout
         </a>

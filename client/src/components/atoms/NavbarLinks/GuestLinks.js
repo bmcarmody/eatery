@@ -5,16 +5,16 @@ const GuestLinks = () => {
   return (
     <React.Fragment>
       <NavLink
-        className="nav__link nav__link--first"
-        activeClassName="nav--selected"
+        className="navbar__link navbar__link--first"
+        activeClassName="navbar--selected"
         exact
         to="/login"
       >
         Login
       </NavLink>
       <NavLink
-        className="nav__link nav__link--last"
-        activeClassName="nav--selected"
+        className="navbar__link navbar__link--last"
+        activeClassName="navbar--selected"
         exact
         to="/register"
       >

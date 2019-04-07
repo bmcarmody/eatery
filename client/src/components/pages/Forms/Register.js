@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import RegisterForm from '../molecules/Forms/RegisterForm';
+import RegisterForm from '../../molecules/Forms/RegisterForm';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { registerUser } from '../../redux/actions/authActions';
+import { registerUser } from '../../../redux/actions/authActions';
 
 class Register extends Component {
   constructor() {
@@ -52,7 +52,7 @@ class Register extends Component {
   render() {
     return (
       <main>
-        <div className="login__image" />
+        <div className="form__image" />
         <RegisterForm
           onChange={this.onChange}
           onSubmit={this.onSubmit}

@@ -1,12 +1,12 @@
-.recipe__results {
-  height: 100%;
-  list-style-type: none;
-}
-
-.recipe__scrollbar {
+.recipeSidebar {
   overflow: auto;
+
+  &__results {
+    height: 100%;
+    list-style-type: none;
+  }
 }
 
-.recipe__scrollbar {
+.recipeSidebar {
   grid-area: recipes;
 }

@@ -4,10 +4,10 @@ import Searchbar from '../molecules/Searchbar';
 const Home = () => {
   return (
     <main>
-      <div className="landing__image" />
-      <div className="landing--center">
-        <h1 className="landing__title">Search for Recipes</h1>
-        <div className="landing__field">
+      <div className="home__image" />
+      <div className="home--center">
+        <h1 className="home__title">Search for Recipes</h1>
+        <div className="home__field">
           <Searchbar />
         </div>
       </div>
