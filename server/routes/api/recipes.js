@@ -30,12 +30,13 @@ router.post(
       image_url,
     };
 
-    Recipe.findOne({ _id: newRecipe._id }).then(recipe => {
+    Recipe.findOne({ recipe_id: newRecipe.recipe_id }).then(recipe => {
       if (recipe) {
         recipe.users.push({ _id: req.user._id });
-        res.json(recipe);
+        recipe.save().then(savedRecipe => res.status(200).json(savedRecipe));
+      } else {
+        new Recipe(newRecipe).save().then(recipeSave => res.json(recipeSave));
       }
-      new Recipe(newRecipe).save().then(recipeSave => res.json(recipeSave));
     });
   }
 );
