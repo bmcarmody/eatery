@@ -1,0 +1,50 @@
+.savedRecipes {
+  height: calc(100vh - 9rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__background-image {
+    background: url('./img/saved_recipes_background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  &__container {
+    border-radius: 20px;
+    width: 80vw;
+    height: 80vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+  }
+}
+
+.savedRecipes {
+  .center-item {
+    grid-area: center-item;
+  }
+
+  &__grid {
+    &--results {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      grid-template-areas: 'recipes details';
+    }
+
+    &--center {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      grid-template-areas: 'center-item center-item';
+      align-items: center;
+    }
+  }
+}

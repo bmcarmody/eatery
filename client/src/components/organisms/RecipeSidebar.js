@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import classnames from 'classnames';
 
 import Recipe from '../atoms/Recipe';
 import PaginationButtons from '../molecules/PaginationButtons';
@@ -26,9 +27,11 @@ class RecipeSidebar extends Component {
               onClick={this.onClick}
             />
           ))}
-          <li>
-            <PaginationButtons />
-          </li>
+          {this.props.page !== 'savedRecipes' && (
+            <li>
+              <PaginationButtons />
+            </li>
+          )}
         </ul>
       </div>
     );

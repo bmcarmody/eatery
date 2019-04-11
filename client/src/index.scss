@@ -1,5 +1,6 @@
 @import './components/global/variables.scss';
 @import './components/global/typography.scss';
+@import './components/global/styles.scss';
 
 @import './App.scss';
 
@@ -20,3 +21,4 @@
 @import './components/pages/Home.scss';
 @import './components/pages/Forms/LoginRegister.scss';
 @import './components/pages/RecipeResults.scss';
+@import './components/pages/SavedRecipes.scss';

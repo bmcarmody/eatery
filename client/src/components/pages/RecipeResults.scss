@@ -64,33 +64,26 @@
   }
 }
 
-.center-item {
-  text-align: center;
-}
-
-.no__results__found {
-  h1 {
-    font-size: 7.5rem;
-    font-family: house-script, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    color: $color-primary !important;
-  }
-
-  p {
-    font-size: 3rem;
-  }
-}
-
 .recipeResults {
-  &__container {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    grid-template-areas: 'recipes details' 'center-item center-item';
-  }
-
   .center-item {
     grid-area: center-item;
+  }
+
+  &__grid {
+    &--results {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      grid-template-areas: 'recipes details';
+    }
+
+    &--center {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      grid-template-areas: 'center-item center-item';
+      align-items: center;
+    }
   }
 }
 

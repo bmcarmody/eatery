@@ -7,3 +7,4 @@ export const REQUEST_RECIPE = 'REQUEST_RECIPE';
 export const SET_SEARCH_QUERY = 'SET_SEARCH_QUERY';
 export const SET_PAGE = 'SET_PAGE';
 export const FETCH_SAVED_RECIPES = 'FETCH_SAVED_RECIPES';
+export const CLEAR_RECIPES = 'CLEAR_RECIPES';

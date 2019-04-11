@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../../redux/actions/authActions';
+import {
+  clearRecipes,
+  fetchRecipes,
+} from '../../../redux/actions/recipeActions';
 
 class AuthLinks extends Component {
   onLogoutClick(e) {
@@ -9,10 +13,15 @@ class AuthLinks extends Component {
     this.props.logoutUser();
   }
 
+  onSavedRecipesClick() {
+    this.props.clearRecipes();
+  }
+
   render() {
     return (
       <React.Fragment>
         <NavLink
+          onClick={this.onSavedRecipesClick.bind(this)}
           className="navbar__link navbar__link--first"
           activeClassName="navbar--selected"
           exact
@@ -34,11 +43,12 @@ class AuthLinks extends Component {
 
 const mapStateToProps = state => ({
   auth: state.auth,
+  recipes: state.recipes,
 });
 
 export default connect(
   mapStateToProps,
-  { logoutUser },
+  { logoutUser, clearRecipes, fetchRecipes },
   null,
   { pure: false } // Fixes issue with activeClassName not working on NavLinks
 )(AuthLinks);

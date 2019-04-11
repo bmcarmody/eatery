@@ -7,6 +7,7 @@ import {
   SET_SEARCH_QUERY,
   SET_PAGE,
   FETCH_SAVED_RECIPES,
+  CLEAR_RECIPES,
 } from '../actions/types';
 import { API_KEY } from '../../keys.json';
 
@@ -58,7 +59,14 @@ export const saveRecipe = recipeData => dispatch => {
 };
 
 export const fetchRecipes = () => dispatch => {
+  dispatch({ type: REQUEST_RECIPES });
   axios.get('/api/recipes/fetch-recipes').then(res => {
     dispatch({ type: FETCH_SAVED_RECIPES, payload: res });
+  });
+};
+
+export const clearRecipes = () => dispatch => {
+  dispatch({
+    type: CLEAR_RECIPES,
   });
 };

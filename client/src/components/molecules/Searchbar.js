@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { generateRecipes, setPage } from '../../redux/actions/recipeActions';
+import {
+  generateRecipes,
+  setPage,
+  clearRecipes,
+} from '../../redux/actions/recipeActions';
 
 class Searchbar extends Component {
   constructor() {
@@ -23,6 +27,7 @@ class Searchbar extends Component {
   onClick(e) {
     e.preventDefault();
     this.props.history.push('/recipes');
+    this.props.clearRecipes();
     this.props.setPage(1);
     this.props.generateRecipes(this.state.searchQuery);
   }
@@ -52,5 +57,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { generateRecipes, setPage }
+  { generateRecipes, setPage, clearRecipes }
 )(withRouter(Searchbar));

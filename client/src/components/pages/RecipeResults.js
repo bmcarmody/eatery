@@ -29,20 +29,24 @@ class RecipeResults extends Component {
           <div className="recipeResults__background-image" />
           <div className="recipeResults__container">
             {this.props.isFetchingRecipes ? (
-              <div className="center-item">
-                <LoadingAnimation />
+              <div className="recipeResults__grid--center">
+                <div className="center-item">
+                  <LoadingAnimation />
+                </div>
               </div>
             ) : (
               <React.Fragment>
                 {this.props.recipes[0] ? (
-                  <React.Fragment>
+                  <div className="recipeResults__grid--results">
                     <RecipeSidebar onScroll={this.onScroll} />
                     <RecipeDetails />
-                  </React.Fragment>
+                  </div>
                 ) : (
-                  <div className="center-item no__results__found">
-                    <h1>No recipes found</h1>
-                    <p className="font__kepler">Please try another search</p>
+                  <div className="recipeResults__grid--center">
+                    <div className="center-item no__results__found">
+                      <h1>No recipes found</h1>
+                      <p className="font__kepler">Please try another search</p>
+                    </div>
                   </div>
                 )}
               </React.Fragment>

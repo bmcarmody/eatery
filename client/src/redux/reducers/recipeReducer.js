@@ -6,6 +6,7 @@ import {
   SET_SEARCH_QUERY,
   SET_PAGE,
   FETCH_SAVED_RECIPES,
+  CLEAR_RECIPES,
 } from '../actions/types';
 
 const initialState = {
@@ -53,6 +54,12 @@ export default function(state = initialState, action) {
         ...state,
         isFetchingRecipes: false,
         recipes: action.payload.data,
+      };
+    case CLEAR_RECIPES:
+      return {
+        ...state,
+        recipes: [],
+        recipe: {},
       };
     default:
       return state;

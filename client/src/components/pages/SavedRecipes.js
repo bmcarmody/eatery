@@ -18,30 +18,41 @@ class SavedRecipes extends Component {
   }
 
   onScroll(e) {
-    document.querySelector('.recipe__container').scrollTop = e.target - 10;
+    document.querySelector('.savedRecipes__container').scrollTop =
+      e.target - 10;
   }
 
   render() {
     return (
       <React.Fragment>
-        <div className="recipe">
-          <div className="saved-recipes__background-image" />
-          <div className="recipe__container">
+        <div className="savedRecipes">
+          <div className="savedRecipes__background-image" />
+          <div className="savedRecipes__container">
             {this.props.isFetchingRecipes ? (
-              <div className="center-item">
-                <LoadingAnimation />
+              <div className="savedRecipes__grid--center">
+                <div className="center-item">
+                  <LoadingAnimation />
+                </div>
               </div>
             ) : (
               <React.Fragment>
                 {this.props.recipes[0] ? (
-                  <React.Fragment>
-                    <RecipeSidebar onScroll={this.onScroll} />
+                  <div className="savedRecipes__grid--results">
+                    <RecipeSidebar
+                      page="savedRecipes"
+                      onScroll={this.onScroll}
+                    />
                     <RecipeDetails />
-                  </React.Fragment>
+                  </div>
                 ) : (
-                  <div className="center-item no__results__found">
-                    <h1>No recipes found</h1>
-                    <p className="font__kepler">Please try another search</p>
+                  <div className="savedRecipes__grid--center">
+                    <div className="center-item no__results__found">
+                      <h1>You haven't saved any recipes!</h1>
+                      <p className="font__kepler">
+                        Search for your favorite recipes and click the heart
+                        icon
+                      </p>
+                    </div>
                   </div>
                 )}
               </React.Fragment>
