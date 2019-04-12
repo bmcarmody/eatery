@@ -25,6 +25,7 @@ class Navbar extends Component {
               className="navbar__menu--toggle"
             />
             <label htmlFor="navbar__menu--toggle">
+              <div className="navbar__menu__icon--wrapper" />
               <div className="navbar__menu__icon" />
             </label>
 

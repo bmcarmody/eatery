@@ -59,6 +59,10 @@
       }
     }
 
+    label {
+      position: relative;
+    }
+
     &__icon {
       z-index: 10;
       position: relative;
@@ -80,6 +84,15 @@
 
       &::after {
         top: 7px;
+      }
+
+      &--wrapper {
+        cursor: pointer;
+        z-index: 15;
+        top: -1rem;
+        position: absolute;
+        width: 2.25rem;
+        height: 2rem;
       }
     }
 

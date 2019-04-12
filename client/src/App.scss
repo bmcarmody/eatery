@@ -21,7 +21,7 @@ body {
 }
 
 main {
-  height: 91vh;
+  height: calc(100vh - 9rem);
   display: grid;
   grid-template-columns: repeat(12, [col-start] 1fr);
   grid-gap: 2rem;
