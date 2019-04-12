@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import classnames from 'classnames';
 
 import Recipe from '../atoms/Recipe';
 import PaginationButtons from '../molecules/PaginationButtons';

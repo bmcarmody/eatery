@@ -24,7 +24,7 @@ class RecipeDetails extends Component {
 
   render() {
     return (
-      <div className="recipeDetails">
+      <div className="recipeDetails" onScroll={this.props.onScroll}>
         {this.props.isFetchingRecipe ? (
           <div className="recipeDetails__loading__animation">
             <LoadingAnimation />
@@ -32,7 +32,7 @@ class RecipeDetails extends Component {
         ) : (
           <React.Fragment>
             {this.props.recipe.title && (
-              <div>
+              <div className="recipeDetials__container">
                 <figure className="img__container">
                   <img
                     src={this.props.recipe.image_url}

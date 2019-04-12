@@ -7,13 +7,13 @@ import RecipeSidebar from '../organisms/RecipeSidebar';
 import RecipeDetails from '../molecules/RecipeDetails';
 
 class RecipeResults extends Component {
-  constructor() {
-    super();
-    this.onScroll = this.onScroll.bind(this);
+  onScrollSidebar(e) {
+    console.log(e);
+    document.querySelector('recipeResults').scrollTop = e.target - 10;
   }
 
-  onScroll(e) {
-    document.querySelector('.recipeResults__container').scrollTop =
+  onScrollDetails(e) {
+    document.querySelector('.recipeResults__grid--results').scrollTop =
       e.target - 10;
   }
 
@@ -38,8 +38,8 @@ class RecipeResults extends Component {
               <React.Fragment>
                 {this.props.recipes[0] ? (
                   <div className="recipeResults__grid--results">
-                    <RecipeSidebar onScroll={this.onScroll} />
-                    <RecipeDetails />
+                    <RecipeSidebar onScroll={this.onScrollSidebar.bind(this)} />
+                    <RecipeDetails onScroll={this.onScrollDetails.bind(this)} />
                   </div>
                 ) : (
                   <div className="recipeResults__grid--center">
