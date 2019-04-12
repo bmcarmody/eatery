@@ -3,8 +3,6 @@
 }
 
 .navbar {
-  margin-left: 10rem;
-  margin-right: 10rem;
   height: 9rem;
 
   &__link {
@@ -133,30 +131,34 @@
       float: right;
     }
   }
+}
 
-  @media screen and (max-width: 959px) {
-    .navbar {
-      &__extended {
-        display: none;
-      }
-      &__menu {
-        grid-column: col-start 12;
-        grid-row: 1;
-        align-self: center;
-        justify-self: center;
-      }
+@media screen and (max-width: 959px) {
+  .navbar {
+    margin-left: 4rem;
+    margin-right: 4rem;
+    &__extended {
+      display: none;
+    }
+    &__menu {
+      grid-column: col-start 12;
+      grid-row: 1;
+      align-self: center;
+      justify-self: center;
     }
   }
+}
 
-  @media screen and (min-width: 960px) {
-    .navbar {
-      &__extended {
-        display: inline-block;
-      }
+@media screen and (min-width: 960px) {
+  .navbar {
+    margin-left: 10rem;
+    margin-right: 10rem;
+    &__extended {
+      display: inline-block;
+    }
 
-      &__menu {
-        display: none;
-      }
+    &__menu {
+      display: none;
     }
   }
 }
