@@ -10,11 +10,18 @@ import {
 class AuthLinks extends Component {
   onLogoutClick(e) {
     e.preventDefault();
+    if (this.props.closeMenu) {
+      this.props.closeMenu();
+    }
     this.props.logoutUser();
   }
 
   onSavedRecipesClick() {
     this.props.clearRecipes();
+
+    if (this.props.closeMenu) {
+      this.props.closeMenu();
+    }
   }
 
   render() {
