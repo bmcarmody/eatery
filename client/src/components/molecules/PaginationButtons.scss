@@ -5,19 +5,24 @@
   padding: 1.5rem;
   &--prev,
   &--next {
+    box-shadow: -1px 3px 4px #ff998f;
     height: 4.5rem;
-    background-color: $color-primary;
+    background-color: rgba(255, 106, 106, 0.9);
     color: $color-white;
     padding: 1rem;
     width: fit-content;
     font-size: 2rem;
-    border-radius: 0.5rem;
+    border-radius: 2rem;
+
     &:active {
       outline: none;
     }
 
     &:hover {
+      background-color: rgba(255, 106, 106, 1);
       cursor: pointer;
+      transform: translate(0px, -2px);
+      box-shadow: -3px 5px 8px #ff998f;
     }
   }
 }

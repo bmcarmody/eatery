@@ -6,6 +6,7 @@ import {
   GET_RECIPE,
   SET_SEARCH_QUERY,
   SET_PAGE,
+  IS_RECIPE_SAVED,
   FETCH_SAVED_RECIPES,
   CLEAR_RECIPES,
 } from '../actions/types';
@@ -50,12 +51,26 @@ export const setPage = page => dispatch => {
 
 // Register User
 export const saveRecipe = recipeData => dispatch => {
+  dispatch({ type: IS_RECIPE_SAVED, payload: true });
   axios
     .post('/api/recipes/save', recipeData)
     .then(res => {
       console.log(res);
     })
     .catch(err => console.log(err));
+};
+
+export const removeRecipe = id => dispatch => {
+  // axios.delete(`/api/recipes/delete/${id}`).then(res => {
+  //   console.log(res);
+  // });
+  console.log('test');
+};
+
+export const isRecipeSaved = id => dispatch => {
+  axios.get(`/api/recipes/fetch-recipe/${id}`).then(res => {
+    dispatch({ type: IS_RECIPE_SAVED, payload: res.data });
+  });
 };
 
 export const fetchRecipes = () => dispatch => {

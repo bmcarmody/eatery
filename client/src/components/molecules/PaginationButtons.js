@@ -26,13 +26,15 @@ class PaginationButtons extends Component {
       <div className="paginationButtons">
         {this.props.page !== 1 ? (
           <button className="paginationButtons--prev" onClick={this.onClick}>
-            Previous
+            <i className="fas fa-arrow-circle-left" /> Page{' '}
+            {this.props.page - 1}
           </button>
         ) : (
           <div className="paginationButtons--placeholder" />
         )}
         <button className="paginationButtons--next" onClick={this.onClick}>
-          Next
+          Page {this.props.page + 1} &nbsp;
+          <i className="fas fa-arrow-circle-right" />
         </button>
       </div>
     );

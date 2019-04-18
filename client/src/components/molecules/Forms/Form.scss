@@ -166,7 +166,7 @@
   .form__container {
     width: 33rem;
     &--register {
-      height: 48rem;
+      height: 47rem;
     }
 
     &--login {
@@ -176,7 +176,7 @@
 
   .form {
     label {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
     }
 
     input {
@@ -190,7 +190,7 @@
 
     &__button {
       height: 3.5rem;
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
 
     &__error {

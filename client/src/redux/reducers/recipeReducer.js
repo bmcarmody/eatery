@@ -7,6 +7,7 @@ import {
   SET_PAGE,
   FETCH_SAVED_RECIPES,
   CLEAR_RECIPES,
+  IS_RECIPE_SAVED,
 } from '../actions/types';
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   recipe: {},
   isFetchingRecipes: false,
   isFetchingRecipe: false,
+  isSaved: false,
   searchQuery: '',
   page: 1,
 };
@@ -49,6 +51,8 @@ export default function(state = initialState, action) {
       };
     case SET_PAGE:
       return { ...state, page: action.payload };
+    case IS_RECIPE_SAVED:
+      return { ...state, isSaved: action.payload };
     case FETCH_SAVED_RECIPES:
       return {
         ...state,

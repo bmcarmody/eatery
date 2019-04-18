@@ -29,36 +29,67 @@
   }
 
   &__info {
-    padding: 2rem;
-
     &__ingredients {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-auto-rows: 4rem;
-      list-style: none;
+      background-color: rgba(112, 112, 112, 0.1);
+      padding: 2rem;
+      padding-bottom: 3rem;
+      margin-bottom: 2rem;
 
-      li:before {
-        content: '';
-        display: inline-block;
-        height: 1.5rem;
-        width: 1.5rem;
-        background-image: url('./img/utensils-solid.svg');
-        background-repeat: no-repeat;
-        margin-right: 1rem;
+      &__title {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        color: $color-primary;
+      }
+
+      &__list {
+        font-size: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 2.5rem;
+        grid-row-gap: 4rem;
+        list-style: none;
+        align-items: center;
+        li {
+          position: relative;
+          padding-left: 3rem;
+
+          &:before {
+            content: '';
+            display: block;
+            height: 1.5rem;
+            width: 1.5rem;
+            background-image: url('./img/utensils-solid.svg');
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0.25rem;
+            left: 0.3rem;
+          }
+        }
       }
     }
 
-    h3 {
-      font-size: 5rem;
-      color: $color-primary !important;
+    &__heading {
+      display: grid;
+      grid-template-columns: 7fr 1fr;
+      align-items: center;
+
+      margin: 2rem;
+      .title {
+        line-height: 4.5rem;
+        font-size: 3.5rem;
+        span {
+          border-bottom: 3px solid black;
+        }
+      }
+      .save {
+        color: $color-primary;
+        justify-self: center;
+        cursor: pointer;
+        font-size: 3.5rem;
+      }
     }
 
-    h5 {
-      font-size: 2rem;
-    }
-
-    ul {
-      padding: 2rem;
+    &__source {
       font-size: 2rem;
     }
   }

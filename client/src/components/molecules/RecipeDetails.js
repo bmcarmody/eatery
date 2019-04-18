@@ -3,12 +3,26 @@ import { connect } from 'react-redux';
 
 import LoadingAnimation from '../atoms/LoadingAnimation';
 
-import { saveRecipe } from '../../redux/actions/recipeActions';
+import {
+  saveRecipe,
+  isRecipeSaved,
+  removeRecipe,
+} from '../../redux/actions/recipeActions';
 
 class RecipeDetails extends Component {
   constructor() {
     super();
     this.saveRecipe = this.saveRecipe.bind(this);
+  }
+
+  componentDidMount() {
+    console.log(this.props.removeRecipe);
+  }
+
+  isRecipeSaved() {
+    if (this.props.recipe.recipe_id) {
+      this.props.isRecipeSaved(this.props.recipe.recipe_id);
+    }
   }
 
   saveRecipe() {
@@ -22,6 +36,10 @@ class RecipeDetails extends Component {
     this.props.saveRecipe(recipeData);
   }
 
+  deleteRecipe() {
+    this.props.removeRecipe();
+  }
+
   render() {
     return (
       <div className="recipeDetails" onScroll={this.props.onScroll}>
@@ -31,8 +49,9 @@ class RecipeDetails extends Component {
           </div>
         ) : (
           <React.Fragment>
+            {this.isRecipeSaved()}
             {this.props.recipe.title && (
-              <div className="recipeDetials__container">
+              <div className="recipeDetails__container">
                 <figure className="img__container">
                   <img
                     src={this.props.recipe.image_url}
@@ -41,14 +60,38 @@ class RecipeDetails extends Component {
                   />
                 </figure>
                 <div className="recipeDetails__info">
-                  <h3 className="font__cursive">{this.props.recipe.title}</h3>
-                  <h5>Source: {this.props.recipe.publisher}</h5>
-                  <ul className="recipeDetails__info__ingredients">
-                    {this.props.recipe.ingredients.map((ingredient, index) => (
-                      <li key={index}>{ingredient}</li>
-                    ))}
-                  </ul>
+                  <div className="recipeDetails__info__heading font__cursive">
+                    <div className="title">
+                      <span>{this.props.recipe.title}</span>
+                    </div>
+                    <span className="save">
+                      {this.props.isSaved ? (
+                        <i
+                          className="fas fa-heart"
+                          onClick={this.deleteRecipe}
+                        />
+                      ) : (
+                        <i className="far fa-heart" onClick={this.saveRecipe} />
+                      )}
+                    </span>
+                  </div>
+                  <div className="recipeDetails__info__ingredients">
+                    <div className="recipeDetails__info__ingredients__title font__cursive">
+                      Ingredients
+                    </div>
+
+                    <ul className="recipeDetails__info__ingredients__list">
+                      {this.props.recipe.ingredients.map(
+                        (ingredient, index) => (
+                          <li key={index}>{ingredient}</li>
+                        )
+                      )}
+                    </ul>
+                  </div>
                   <button onClick={this.saveRecipe}>Save recipe</button>
+                  <div className="recipeDetails__info__source">
+                    Source: {this.props.recipe.publisher}
+                  </div>
                 </div>
               </div>
             )}
@@ -62,9 +105,10 @@ class RecipeDetails extends Component {
 const mapStateToProps = state => ({
   recipe: state.recipes.recipe,
   isFetchingRecipe: state.recipes.isFetchingRecipe,
+  isSaved: state.recipes.isSaved,
 });
 
 export default connect(
   mapStateToProps,
-  { saveRecipe }
+  { saveRecipe, isRecipeSaved, removeRecipe }
 )(RecipeDetails);

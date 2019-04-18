@@ -16,7 +16,7 @@
 
   &__title {
     text-align: center;
-    font-size: 6rem;
+    font-size: 7rem;
     color: white;
     margin-bottom: 1rem;
   }
@@ -67,7 +67,7 @@
 @media screen and (max-width: 576px) {
   .home {
     &__title {
-      font-size: 3.5rem;
+      font-size: 5rem;
     }
 
     &__field {
