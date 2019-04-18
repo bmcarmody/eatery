@@ -136,7 +136,7 @@
   }
 
   &__extended {
-    grid-column: col-start 11 / span 2;
+    grid-column: col-start 10 / span 3;
     grid-row: 1;
     align-self: center;
 
@@ -162,7 +162,21 @@
   }
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 960px) and (max-width: 1139px) {
+  .navbar {
+    margin-left: 10rem;
+    margin-right: 10rem;
+    &__extended {
+      display: inline-block;
+    }
+
+    &__menu {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 1140px) {
   .navbar {
     margin-left: 10rem;
     margin-right: 10rem;
