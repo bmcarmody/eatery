@@ -41,11 +41,9 @@ class RecipeDetails extends Component {
                   />
                 </figure>
                 <div className="recipeDetails__info">
-                  <h3>{this.props.recipe.title}</h3>
-                  <h5 className="font__kepler">
-                    Source: {this.props.recipe.publisher}
-                  </h5>
-                  <ul>
+                  <h3 className="font__cursive">{this.props.recipe.title}</h3>
+                  <h5>Source: {this.props.recipe.publisher}</h5>
+                  <ul className="recipeDetails__info__ingredients">
                     {this.props.recipe.ingredients.map((ingredient, index) => (
                       <li key={index}>{ingredient}</li>
                     ))}

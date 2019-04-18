@@ -44,8 +44,8 @@ class RecipeResults extends Component {
                 ) : (
                   <div className="recipeResults__grid--center">
                     <div className="center-item no__results__found">
-                      <h1>No recipes found</h1>
-                      <p className="font__kepler">Please try another search</p>
+                      <h1 className="font__cursive">No recipes found</h1>
+                      <p>Please try another search</p>
                     </div>
                   </div>
                 )}

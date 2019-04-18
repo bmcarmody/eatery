@@ -13,7 +13,7 @@ class Navbar extends Component {
   render() {
     return (
       <div className="background--white">
-        <nav className="navbar">
+        <nav className="navbar font__cursive">
           <MainLink />
           <div className="navbar__extended">
             {this.props.auth.isAuthenticated ? <AuthLinks /> : <GuestLinks />}

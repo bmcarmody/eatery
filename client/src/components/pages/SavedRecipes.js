@@ -47,8 +47,10 @@ class SavedRecipes extends Component {
                 ) : (
                   <div className="savedRecipes__grid--center">
                     <div className="center-item no__results__found">
-                      <h1>You haven't saved any recipes!</h1>
-                      <p className="font__kepler">
+                      <h1 className="font__cursive">
+                        You haven't saved any recipes!
+                      </h1>
+                      <p>
                         Search for your favorite recipes and click the heart
                         icon
                       </p>

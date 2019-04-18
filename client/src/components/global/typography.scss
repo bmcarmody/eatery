@@ -1,8 +1,9 @@
-@import url('https://use.typekit.net/zoa6ifc.css');
+@import url('https://fonts.googleapis.com/css?family=Arimo|Lobster+Two');
 
-input,
-.font__kepler {
-  font-family: kepler-std-caption, serif;
-  font-weight: 300;
-  font-style: normal;
+body {
+  font-family: 'Arimo', sans-serif;
+}
+
+.font__cursive {
+  font-family: 'Lobster Two', cursive;
 }

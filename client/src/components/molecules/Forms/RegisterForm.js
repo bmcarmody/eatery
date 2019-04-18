@@ -5,7 +5,7 @@ import classnames from 'classnames';
 const RegisterForm = props => {
   return (
     <div className="form__container form__container--register">
-      <form className="form" onSubmit={props.onSubmit}>
+      <form className="form font__cursive" onSubmit={props.onSubmit}>
         <h1 className="form__title">Register</h1>
         <div className="form__title__border" />
 
@@ -16,7 +16,7 @@ const RegisterForm = props => {
         >
           <label htmlFor="name">Name</label>
           {props.errors.name && (
-            <div className="font__kepler form__error">{props.errors.name}</div>
+            <div className="form__error">{props.errors.name}</div>
           )}
           <input
             type="text"
@@ -34,7 +34,7 @@ const RegisterForm = props => {
         >
           <label htmlFor="email">Email</label>
           {props.errors.email && (
-            <div className="font__kepler form__error">{props.errors.email}</div>
+            <div className="form__error">{props.errors.email}</div>
           )}
           <input
             type="text"
@@ -53,12 +53,10 @@ const RegisterForm = props => {
           <label htmlFor="name">Password</label>
           <React.Fragment>
             {props.errors.password ? (
-              <div className="font__kepler form__error">
-                {props.errors.password}
-              </div>
+              <div className="form__error">{props.errors.password}</div>
             ) : (
               <React.Fragment>
-                <div className="form__password__label form__password__label--alignment font__kepler">
+                <div className="form__password__label form__password__label--alignment">
                   Password must be at least 6 characters
                 </div>
               </React.Fragment>
@@ -80,9 +78,7 @@ const RegisterForm = props => {
         >
           <label htmlFor="password2">Confirm Password</label>
           {props.errors.password2 && (
-            <div className="font__kepler form__error">
-              {props.errors.password2}
-            </div>
+            <div className="form__error">{props.errors.password2}</div>
           )}
           <input
             type="password"
@@ -93,11 +89,11 @@ const RegisterForm = props => {
           />
         </div>
 
-        <button className="form__button" type="submit">
+        <button className="form__button font__cursive" type="submit">
           Register
         </button>
 
-        <div className="font__kepler form__guide">
+        <div className="form__guide">
           <React.Fragment>
             Already have an account? &nbsp;
             <Link to="/login" className="nav__selected form__guide--color-fix">

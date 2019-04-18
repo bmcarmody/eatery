@@ -6,7 +6,7 @@ const Home = () => {
     <main>
       <div className="home__image" />
       <div className="home--center">
-        <h1 className="home__title">Search for Recipes</h1>
+        <h1 className="home__title font__cursive">Search for Recipes</h1>
         <div className="home__field">
           <Searchbar />
         </div>

@@ -5,7 +5,7 @@ import classnames from 'classnames';
 const LoginForm = props => {
   return (
     <div className="form__container form__container--login">
-      <form className="form" onSubmit={props.onSubmit}>
+      <form className="form font__cursive" onSubmit={props.onSubmit}>
         <h1 className="form__title">Login</h1>
         <div className="form__title__border" />
         <div
@@ -15,7 +15,7 @@ const LoginForm = props => {
         >
           <label htmlFor="email">Email</label>
           {props.errors.email && (
-            <div className="font__kepler form__error">{props.errors.email}</div>
+            <div className="form__error">{props.errors.email}</div>
           )}
           <input
             type="text"
@@ -34,9 +34,7 @@ const LoginForm = props => {
           <label htmlFor="name">Password</label>
           <React.Fragment>
             {props.errors.password && (
-              <div className="font__kepler form__error">
-                {props.errors.password}
-              </div>
+              <div className="form__error">{props.errors.password}</div>
             )}
           </React.Fragment>
           <input
@@ -48,11 +46,11 @@ const LoginForm = props => {
           />
         </div>
 
-        <button className="form__button" type="submit">
+        <button className="form__button font__cursive" type="submit">
           Login
         </button>
 
-        <div className="font__kepler form__guide">
+        <div className="form__guide">
           <React.Fragment>
             Don't have an account? &nbsp;
             <Link

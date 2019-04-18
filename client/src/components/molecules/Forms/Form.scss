@@ -13,9 +13,6 @@
 }
 
 .form {
-  font-family: house-script, sans-serif;
-  font-style: normal;
-  font-weight: 400;
   margin-left: 1rem;
   margin-right: 1rem;
 
@@ -51,9 +48,6 @@
   }
 
   &__button {
-    font-family: house-script, sans-serif;
-    font-style: normal;
-    font-weight: 400;
     height: 5rem;
     border-radius: 7px;
     background-color: $color-primary;

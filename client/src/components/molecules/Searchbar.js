@@ -40,7 +40,6 @@ class Searchbar extends Component {
           type="textbox"
           placeholder="Search Recipes"
           autoFocus
-          className="font__kepler"
           onChange={this.onChange}
         />
         <button onClick={this.onClick}>

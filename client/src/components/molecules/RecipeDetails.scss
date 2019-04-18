@@ -30,11 +30,26 @@
 
   &__info {
     padding: 2rem;
+
+    &__ingredients {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 4rem;
+      list-style: none;
+
+      li:before {
+        content: '';
+        display: inline-block;
+        height: 1.5rem;
+        width: 1.5rem;
+        background-image: url('./img/utensils-solid.svg');
+        background-repeat: no-repeat;
+        margin-right: 1rem;
+      }
+    }
+
     h3 {
       font-size: 5rem;
-      font-family: house-script, sans-serif;
-      font-style: normal;
-      font-weight: 400;
       color: $color-primary !important;
     }
 

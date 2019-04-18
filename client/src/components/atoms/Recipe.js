@@ -12,8 +12,10 @@ const Recipe = props => {
           <img src={props.recipe.image_url} alt={props.recipe.title} />
         </figure>
         <div className="recipe__data">
-          <h4 className="recipe__name font__kepler">{props.recipe.title}</h4>
-          <p className="recipe__author">{props.recipe.publisher}</p>
+          <h4 className="recipe__name">{props.recipe.title}</h4>
+          <p className="recipe__author font__cursive">
+            {props.recipe.publisher}
+          </p>
         </div>
       </a>
     </li>
