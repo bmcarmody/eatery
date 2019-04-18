@@ -1,11 +1,5 @@
 .recipe {
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
   padding: 1.5rem;
-
-  &:last-child {
-    border: none;
-  }
 
   &__fig {
     img {

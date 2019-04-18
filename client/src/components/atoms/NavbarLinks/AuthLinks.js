@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../../redux/actions/authActions';
 import {
@@ -13,6 +13,7 @@ class AuthLinks extends Component {
     if (this.props.closeMenu) {
       this.props.closeMenu();
     }
+    this.props.history.push('/');
     this.props.logoutUser();
   }
 
@@ -58,4 +59,4 @@ export default connect(
   { logoutUser, clearRecipes, fetchRecipes },
   null,
   { pure: false } // Fixes issue with activeClassName not working on NavLinks
-)(AuthLinks);
+)(withRouter(AuthLinks));
