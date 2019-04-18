@@ -1,6 +1,28 @@
 .recipe {
   padding: 1.5rem;
 
+  &:nth-child(odd) {
+    border-left: 1rem solid $color-primary;
+    background-color: rgba(255, 106, 106, 0.2);
+
+    &:hover {
+      border-left: 1.5rem solid $color-primary;
+    }
+  }
+
+  &:nth-child(even) {
+    border-left: 1rem solid #ff998f;
+
+    &:hover {
+      border-left: 1.5rem solid #ff998f;
+    }
+  }
+
+  &__active {
+    border-left-width: 1.5rem !important;
+    background-color: rgba(255, 106, 106, 0.5) !important;
+  }
+
   &__fig {
     img {
       border-radius: 50%;

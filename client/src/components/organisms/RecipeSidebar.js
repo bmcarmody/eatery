@@ -12,6 +12,15 @@ class RecipeSidebar extends Component {
   }
 
   onClick(id) {
+    try {
+      const recipeSelector = document.querySelector('.recipe__active');
+      recipeSelector.classList.remove('recipe__active');
+    } catch (e) {
+    } finally {
+      const recipeIdSelector = document.querySelector(`.recipe${id}`);
+      recipeIdSelector.classList.add('recipe__active'); //Found in Recipe.scss
+    }
+
     this.props.getRecipe(id);
   }
 

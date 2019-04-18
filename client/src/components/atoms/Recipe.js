@@ -2,7 +2,7 @@ import React from 'react';
 
 const Recipe = props => {
   return (
-    <li className="recipe">
+    <li className={`recipe recipe${props.recipe.recipe_id}`}>
       <a
         className="recipe__link"
         href={`#${props.recipe.recipe_id}`}
