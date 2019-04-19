@@ -16,6 +16,7 @@ import SavedRecipes from './components/pages/SavedRecipes';
 
 // Check for token
 if (localStorage.jwtToken) {
+  console.log('ran');
   // Set auth token header auth
   setAuthToken(localStorage.jwtToken);
   // Decode toekn and get user info and exp

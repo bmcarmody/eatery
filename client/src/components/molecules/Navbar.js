@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import jwt_decode from 'jwt-decode';
+import { logoutUser } from '../../redux/actions/authActions';
+
 import MainLink from '../atoms/NavbarLinks/MainLink';
 import AuthLinks from '../atoms/NavbarLinks/AuthLinks';
 import GuestLinks from '../atoms/NavbarLinks/GuestLinks';
@@ -8,6 +11,21 @@ import GuestLinks from '../atoms/NavbarLinks/GuestLinks';
 class Navbar extends Component {
   closeMenu() {
     document.querySelector('.navbar__menu--toggle').checked = false;
+  }
+
+  componentDidUpdate() {
+    if (localStorage.jwtToken) {
+      // Decode toekn and get user info and exp
+      const decoded = jwt_decode(localStorage.jwtToken);
+
+      // Check for expired token
+      const currentTime = Date.now() / 1000;
+      if (decoded.exp < currentTime) {
+        // Logout user
+        this.props.logoutUser();
+        this.props.history.push('/');
+      }
+    }
   }
 
   render() {
@@ -49,7 +67,7 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  null,
+  { logoutUser },
   null,
   { pure: false } // Fixes issue with activeClassName not working on NavLinks
 )(Navbar);
