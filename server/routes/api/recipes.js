@@ -78,8 +78,29 @@ router.delete(
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const recipe_id = req.params.id;
-    Recipe.find({ recipe_id, users: { _id: req.user.id } }).then(recipes => {
-      res.send(recipes);
+    Recipe.find({ recipe_id, users: { _id: req.user.id } }).then(recipe => {
+      if (recipe[0].users.length > 1) {
+        Recipe.findOneAndUpdate(
+          { recipe_id },
+          { $pull: { users: { _id: req.user.id } } },
+          { new: true },
+          (err, doc) => {
+            if (err) {
+              res.status(400).send(err);
+            }
+
+            res.send(doc);
+          }
+        );
+      } else {
+        Recipe.findOneAndDelete({ recipe_id }, (err, doc) => {
+          if (err) {
+            res.status(400).send(err);
+          }
+
+          res.send(doc);
+        });
+      }
     });
   }
 );

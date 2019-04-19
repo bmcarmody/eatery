@@ -14,6 +14,9 @@ class SavedRecipes extends Component {
   }
 
   componentDidMount() {
+    if (!this.props.auth.isAuthenticated) {
+      this.props.history.push('/');
+    }
     this.props.fetchRecipes();
   }
 
@@ -69,6 +72,7 @@ class SavedRecipes extends Component {
 const mapStateToProps = state => ({
   recipes: state.recipes.recipes,
   isFetchingRecipes: state.recipes.isFetchingRecipes,
+  auth: state.auth,
 });
 
 export default connect(

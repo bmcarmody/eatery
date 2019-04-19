@@ -54,17 +54,17 @@ export const saveRecipe = recipeData => dispatch => {
   dispatch({ type: IS_RECIPE_SAVED, payload: true });
   axios
     .post('/api/recipes/save', recipeData)
-    .then(res => {
-      console.log(res);
-    })
+    .then(res => {})
     .catch(err => console.log(err));
 };
 
 export const removeRecipe = id => dispatch => {
-  // axios.delete(`/api/recipes/delete/${id}`).then(res => {
-  //   console.log(res);
-  // });
-  console.log('test');
+  axios
+    .delete(`/api/recipes/delete/${id}`)
+    .then(res => {
+      dispatch({ type: IS_RECIPE_SAVED, payload: false });
+    })
+    .catch(err => console.log(err));
 };
 
 export const isRecipeSaved = id => dispatch => {

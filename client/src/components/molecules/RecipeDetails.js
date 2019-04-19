@@ -13,10 +13,8 @@ class RecipeDetails extends Component {
   constructor() {
     super();
     this.saveRecipe = this.saveRecipe.bind(this);
-  }
-
-  componentDidMount() {
-    console.log(this.props.removeRecipe);
+    this.deleteRecipe = this.deleteRecipe.bind(this);
+    this.showLoginError = this.showLoginError.bind(this);
   }
 
   isRecipeSaved() {
@@ -37,7 +35,11 @@ class RecipeDetails extends Component {
   }
 
   deleteRecipe() {
-    this.props.removeRecipe();
+    this.props.removeRecipe(this.props.recipe.recipe_id);
+  }
+
+  showLoginError() {
+    alert('You must be logged in to save recipes!');
   }
 
   render() {
@@ -64,16 +66,26 @@ class RecipeDetails extends Component {
                     <div className="title">
                       <span>{this.props.recipe.title}</span>
                     </div>
-                    <span className="save">
-                      {this.props.isSaved ? (
-                        <i
-                          className="fas fa-heart"
-                          onClick={this.deleteRecipe}
-                        />
+                    <div className="save">
+                      {this.props.auth.isAuthenticated ? (
+                        this.props.isSaved ? (
+                          <i
+                            className="fas fa-heart"
+                            onClick={this.deleteRecipe}
+                          />
+                        ) : (
+                          <i
+                            className="far fa-heart"
+                            onClick={this.saveRecipe}
+                          />
+                        )
                       ) : (
-                        <i className="far fa-heart" onClick={this.saveRecipe} />
+                        <i
+                          className="far fa-heart"
+                          onClick={this.showLoginError}
+                        />
                       )}
-                    </span>
+                    </div>
                   </div>
                   <div className="recipeDetails__info__ingredients">
                     <div className="recipeDetails__info__ingredients__title font__cursive">
@@ -106,6 +118,7 @@ const mapStateToProps = state => ({
   recipe: state.recipes.recipe,
   isFetchingRecipe: state.recipes.isFetchingRecipe,
   isSaved: state.recipes.isSaved,
+  auth: state.auth,
 });
 
 export default connect(
