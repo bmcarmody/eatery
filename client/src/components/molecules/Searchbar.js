@@ -16,6 +16,7 @@ class Searchbar extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.onEnterPress = this.onEnterPress.bind(this);
   }
 
   onChange(e) {
@@ -32,6 +33,12 @@ class Searchbar extends Component {
     this.props.generateRecipes(this.state.searchQuery);
   }
 
+  onEnterPress(e) {
+    if (e.key === 'Enter') {
+      this.onClick(e);
+    }
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -41,6 +48,7 @@ class Searchbar extends Component {
           placeholder="Search Recipes"
           autoFocus
           onChange={this.onChange}
+          onKeyDown={this.onEnterPress}
         />
         <button onClick={this.onClick}>
           <i className="fas fa-search" />
