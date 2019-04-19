@@ -35,11 +35,12 @@ class RecipeSidebar extends Component {
               onClick={this.onClick}
             />
           ))}
-          {this.props.page !== 'savedRecipes' && (
-            <li>
-              <PaginationButtons />
-            </li>
-          )}
+          {this.props.page !== 'savedRecipes' &&
+            (this.props.recipes.length === 30 && (
+              <li>
+                <PaginationButtons />
+              </li>
+            ))}
         </ul>
       </div>
     );
