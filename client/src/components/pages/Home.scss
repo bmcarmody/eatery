@@ -28,21 +28,21 @@
       width: 50rem;
       height: 5rem;
       font-size: 2.5rem;
-      padding-left: 1rem;
-      border-radius: 1px;
+      padding-left: 2rem;
+      border-radius: 3rem;
       border: none;
 
       &:focus {
         outline: none;
         border: 2px solid $color-primary;
-        padding-left: 8px;
+        padding-left: 1.8rem;
       }
     }
 
     button {
       position: absolute;
       top: 0.75rem;
-      right: 1rem;
+      right: 1.5rem;
       font-size: 3rem;
       border: none;
       background: white;
@@ -74,13 +74,14 @@
       input {
         width: 35rem;
         height: 4rem;
+        font-size: 2.25rem;
       }
 
       button {
         font-size: 2.5rem;
         position: absolute;
-        top: 0.7rem;
-        right: 1rem;
+        top: 0.6rem;
+        right: 1.25rem;
       }
     }
   }

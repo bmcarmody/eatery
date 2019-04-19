@@ -18,8 +18,10 @@ class RecipeDetails extends Component {
   }
 
   isRecipeSaved() {
-    if (this.props.recipe.recipe_id) {
-      this.props.isRecipeSaved(this.props.recipe.recipe_id);
+    if (this.props.auth.isAuthenticated) {
+      if (this.props.recipe.recipe_id) {
+        this.props.isRecipeSaved(this.props.recipe.recipe_id);
+      }
     }
   }
 
@@ -100,9 +102,29 @@ class RecipeDetails extends Component {
                       )}
                     </ul>
                   </div>
-                  <button onClick={this.saveRecipe}>Save recipe</button>
-                  <div className="recipeDetails__info__source">
-                    Source: {this.props.recipe.publisher}
+                  <div className="recipeDetails__info__directions">
+                    <div className="recipeDetails__info__directions__title font__cursive">
+                      Directions
+                    </div>
+                    <p>
+                      To view directions, please visit{' '}
+                      {this.props.recipe.publisher}'s site by clicking the
+                      button below. This is to support all of the websites that
+                      contribute to making the Food2Fork API which powers this
+                      website possible.
+                    </p>
+                    <div className="recipeDetails__info__directions__container">
+                      <button className="recipeDetails__info__directions__container__button font__cursive">
+                        <a
+                          href={this.props.recipe.source_url}
+                          alt={this.props.recipe.title}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          View Directions
+                        </a>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

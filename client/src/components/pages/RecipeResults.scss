@@ -31,34 +31,40 @@
     height: 10rem;
     &__container {
       position: relative;
-      width: 50rem;
 
       input {
-        padding: 1rem;
+        padding: 2rem;
         width: 50rem;
         height: 4rem;
         font-size: 2rem;
+        border-radius: 2rem;
+        border: none;
 
         &:focus {
           outline: none;
           border: 2px solid $color-primary;
-          padding-left: 1rem;
+          padding-left: 1.8rem;
+          top: 10rem;
         }
       }
 
       button {
         font-size: 2.5rem;
-        background: none;
         border: none;
         position: absolute;
         top: 0.5rem;
-        right: 1rem;
+        right: 1.5rem;
+        background: white;
 
         &:focus,
         &:active {
           outline: none;
           color: $color-primary;
         }
+      }
+
+      input:focus ~ button {
+        top: 0.7rem;
       }
     }
   }

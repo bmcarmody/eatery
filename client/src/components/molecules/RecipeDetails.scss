@@ -33,7 +33,6 @@
       background-color: rgba(112, 112, 112, 0.1);
       padding: 2rem;
       padding-bottom: 3rem;
-      margin-bottom: 2rem;
 
       &__title {
         font-size: 3rem;
@@ -89,8 +88,46 @@
       }
     }
 
-    &__source {
-      font-size: 2rem;
+    &__directions {
+      padding: 2rem;
+      padding-bottom: 3rem;
+      &__title {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        color: $color-primary;
+      }
+
+      p {
+        font-size: 2rem;
+      }
+
+      &__container {
+        height: 8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__button {
+          a {
+            text-decoration: none;
+            color: #fff;
+          }
+          padding: 1rem;
+          cursor: pointer;
+          font-size: 3rem;
+          width: fit-content;
+          height: 6rem;
+          border-radius: 3rem;
+
+          background-color: $color-primary;
+          box-shadow: -1px 3px 4px #ff998f;
+
+          &:hover {
+            background-color: rgba(255, 106, 106, 1);
+            transform: translate(0px, -2px);
+            box-shadow: -1px 7px 8px #ff998f;
+          }
+        }
+      }
     }
   }
 }
