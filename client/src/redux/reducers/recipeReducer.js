@@ -8,6 +8,7 @@ import {
   FETCH_SAVED_RECIPES,
   CLEAR_RECIPES,
   IS_RECIPE_SAVED,
+  CLEAR_RECIPE,
 } from '../actions/types';
 
 const initialState = {
@@ -63,6 +64,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         recipes: [],
+        recipe: {},
+      };
+    case CLEAR_RECIPE:
+      return {
+        ...state,
         recipe: {},
       };
     default:

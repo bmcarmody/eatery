@@ -3,9 +3,8 @@ import React from 'react';
 const Recipe = props => {
   return (
     <li className={`recipe recipe${props.recipe.recipe_id}`}>
-      <a
+      <div
         className="recipe__link"
-        href={`#${props.recipe.recipe_id}`}
         onClick={() => props.onClick(props.recipe.recipe_id)}
       >
         <figure className="recipe__fig">
@@ -17,7 +16,7 @@ const Recipe = props => {
             {props.recipe.publisher}
           </p>
         </div>
-      </a>
+      </div>
     </li>
   );
 };

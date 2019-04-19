@@ -98,3 +98,33 @@
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (max-width: 959px) {
+  .recipeResults {
+    &__grid {
+      &--results {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      &--center {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 'center-item';
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .recipeResults {
+    .recipeDetails {
+      &__backButton {
+        display: none;
+      }
+    }
+  }
+}

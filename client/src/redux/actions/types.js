@@ -9,3 +9,4 @@ export const SET_PAGE = 'SET_PAGE';
 export const IS_RECIPE_SAVED = 'IS_RECIPE_SAVED';
 export const FETCH_SAVED_RECIPES = 'FETCH_SAVED_RECIPES';
 export const CLEAR_RECIPES = 'CLEAR_RECIPES';
+export const CLEAR_RECIPE = 'CLEAR_RECIPE';

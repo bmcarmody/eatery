@@ -1,11 +1,23 @@
 .recipeDetails {
   overflow: auto;
+  position: relative;
 
   &__loading__animation {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  &__backButton {
+    display: none;
+    cursor: pointer;
+    color: #fff;
+    position: absolute;
+    z-index: 2;
+    font-size: 4rem;
+    left: 2rem;
+    top: 2rem;
   }
 
   .img__container {
@@ -102,7 +114,7 @@
       }
 
       &__container {
-        height: 8rem;
+        height: 10rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -134,4 +146,15 @@
 
 .recipeDetails {
   grid-area: details;
+}
+
+@media screen and (max-width: 959px) {
+  .recipeDetails {
+    &__loading__animation {
+      width: 80vw;
+    }
+    &__backButton {
+      display: block;
+    }
+  }
 }

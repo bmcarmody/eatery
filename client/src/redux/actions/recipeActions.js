@@ -9,6 +9,7 @@ import {
   IS_RECIPE_SAVED,
   FETCH_SAVED_RECIPES,
   CLEAR_RECIPES,
+  CLEAR_RECIPE,
 } from '../actions/types';
 import { API_KEY } from '../../keys.json';
 
@@ -83,5 +84,11 @@ export const fetchRecipes = () => dispatch => {
 export const clearRecipes = () => dispatch => {
   dispatch({
     type: CLEAR_RECIPES,
+  });
+};
+
+export const clearRecipe = () => dispatch => {
+  dispatch({
+    type: CLEAR_RECIPE,
   });
 };

@@ -46,7 +46,7 @@ class RecipeDetails extends Component {
 
   render() {
     return (
-      <div className="recipeDetails" onScroll={this.props.onScroll}>
+      <div className="recipeDetails">
         {this.props.isFetchingRecipe ? (
           <div className="recipeDetails__loading__animation">
             <LoadingAnimation />
@@ -56,6 +56,13 @@ class RecipeDetails extends Component {
             {this.isRecipeSaved()}
             {this.props.recipe.title && (
               <div className="recipeDetails__container">
+                <div
+                  className="recipeDetails__backButton"
+                  onClick={this.props.hideDetails}
+                >
+                  <i className="fas fa-arrow-left" />
+                  &nbsp;Back
+                </div>
                 <figure className="img__container">
                   <img
                     src={this.props.recipe.image_url}
