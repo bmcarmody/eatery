@@ -1,5 +1,5 @@
 .recipeResults {
-  height: calc(100vh - 16rem);
+  height: calc(100vh - 25rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,7 +22,7 @@
   &__container {
     border-radius: 20px;
     width: 80vw;
-    height: 80vh;
+    height: 100%;
     background-color: rgba(255, 255, 255, 0.9);
     overflow: hidden;
   }
@@ -101,6 +101,7 @@
 
 @media screen and (max-width: 959px) {
   .recipeResults {
+    height: calc(100vh - 16rem);
     &__searchbar {
       height: 7rem;
       input {
