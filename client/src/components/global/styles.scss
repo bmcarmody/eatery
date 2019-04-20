@@ -12,3 +12,16 @@
     font-size: 3rem;
   }
 }
+
+@media screen and (max-width: 959px) {
+  .no__results__found {
+    padding: 1rem;
+    h1 {
+      font-size: 4rem;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+  }
+}

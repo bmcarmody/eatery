@@ -1,5 +1,5 @@
 .recipeResults {
-  height: calc(100vh - 25rem);
+  height: calc(100vh - 16rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,7 +52,7 @@
         font-size: 2.5rem;
         border: none;
         position: absolute;
-        top: 0.5rem;
+        top: 0.7rem;
         right: 1.5rem;
         background: white;
 
@@ -64,7 +64,7 @@
       }
 
       input:focus ~ button {
-        top: 0.7rem;
+        top: 0.9rem;
       }
     }
   }
@@ -101,6 +101,17 @@
 
 @media screen and (max-width: 959px) {
   .recipeResults {
+    &__searchbar {
+      height: 7rem;
+      input {
+        width: 28rem;
+      }
+    }
+
+    &__container {
+      height: 92.5%;
+    }
+
     &__grid {
       &--results {
         height: 100%;

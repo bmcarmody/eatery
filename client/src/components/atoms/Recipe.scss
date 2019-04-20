@@ -58,3 +58,22 @@
     font-size: 2rem;
   }
 }
+
+@media screen and (max-width: 959px) {
+  .recipe {
+    &__fig {
+      img {
+        width: 6rem;
+        height: 6rem;
+      }
+    }
+
+    &__name {
+      font-size: 1.5rem;
+    }
+
+    &__author {
+      font-size: 1.5rem;
+    }
+  }
+}

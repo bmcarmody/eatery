@@ -123,6 +123,7 @@
             text-decoration: none;
             color: #fff;
           }
+          border: none;
           padding: 1rem;
           cursor: pointer;
           font-size: 3rem;
@@ -150,11 +151,58 @@
 
 @media screen and (max-width: 959px) {
   .recipeDetails {
+    z-index: 1;
+    &__backButton {
+      font-size: 3rem;
+    }
+
+    .img__container {
+      height: 18rem;
+    }
+
     &__loading__animation {
       width: 80vw;
     }
     &__backButton {
       display: block;
+    }
+
+    &__info {
+      &__ingredients {
+        &__title {
+          font-size: 2.5rem;
+        }
+
+        &__list {
+          grid-gap: 1.5rem;
+          font-size: 1.5rem;
+        }
+      }
+      &__heading {
+        .title {
+          font-size: 2.5rem;
+        }
+      }
+
+      &__directions {
+        &__title {
+          font-size: 2.5rem;
+        }
+
+        p {
+          font-size: 1.5rem;
+        }
+
+        &__container {
+          height: 7rem;
+          padding-top: 3rem;
+
+          button {
+            height: 5rem;
+            font-size: 2.5rem;
+          }
+        }
+      }
     }
   }
 }

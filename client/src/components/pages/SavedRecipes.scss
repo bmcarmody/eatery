@@ -51,6 +51,17 @@
 
 @media screen and (max-width: 959px) {
   .savedRecipes {
+    &__searchbar {
+      height: 7rem;
+      input {
+        width: 28rem;
+      }
+    }
+
+    &__container {
+      height: 92.5%;
+    }
+
     &__grid {
       &--results {
         height: 100%;

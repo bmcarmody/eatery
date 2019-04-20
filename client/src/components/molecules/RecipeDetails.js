@@ -57,7 +57,7 @@ class RecipeDetails extends Component {
             {this.props.recipe.title && (
               <div className="recipeDetails__container">
                 <div
-                  className="recipeDetails__backButton"
+                  className="recipeDetails__backButton font__cursive"
                   onClick={this.props.hideDetails}
                 >
                   <i className="fas fa-arrow-left" />
