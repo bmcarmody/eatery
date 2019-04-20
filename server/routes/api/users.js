@@ -63,7 +63,7 @@ router.post('/login', (req, res) => {
     }
     res.status(400).json(errorsObject);
   } else {
-    User.findByCredentials(body.email, body.password)
+    User.findByCredentials(body.email.toLowerCase(), body.password)
       .then(user => {
         // prettier-ignore
         user.generateBearerToken().then(token => {

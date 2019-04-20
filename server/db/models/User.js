@@ -42,6 +42,10 @@ UserSchema.pre('save', function(next) {
     bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(user.password, salt, (err, hash) => {
         user.password = hash;
+        if (user.isModified('email')) {
+          user.email = user.email.toLowerCase();
+        }
+
         next();
       });
     });
