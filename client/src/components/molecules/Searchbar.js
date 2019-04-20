@@ -46,7 +46,6 @@ class Searchbar extends Component {
           name="searchQuery"
           type="textbox"
           placeholder="Search Recipes"
-          autoFocus
           onChange={this.onChange}
           onKeyDown={this.onEnterPress}
         />
