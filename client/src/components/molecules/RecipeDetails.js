@@ -114,7 +114,7 @@ class RecipeDetails extends Component {
                       Directions
                     </div>
                     <p>
-                      To view directions, please visit
+                      To view directions, please visit{' '}
                       {this.props.recipe.publisher}'s site by clicking the
                       button below. This is to support all of the websites that
                       contribute to making the Food2Fork API which powers this
