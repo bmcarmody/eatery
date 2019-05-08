@@ -1,6 +1,6 @@
 # Eatery
 
-A recipe search engine website powered by the Food2Fork API.
+A recipe search engine built with React and Node JS, powered by the [Food2Fork API](https://www.food2fork.com/about/api).
 
 ## Built With
 
@@ -14,44 +14,22 @@ A recipe search engine website powered by the Food2Fork API.
 - NodeJS/Express 
 - MongoDB/Mongoose     
 
-User's passwords are encrypted with [bcrypt](https://github.com/kelektiv/node.bcrypt.js#readme) before being stored in the database. Private routes are protected with [passport](http://www.passportjs.org/docs/) which require a valid [JSON web token](https://jwt.io/), generated when the user logs in (1 hour time limit before it expires and user gets logged out).
+## Functionality
+### Search for recipes
+From the home page, users can search for any recipe they desire.
+![Search Example](img/eatery_search_example.png)
 
-## Routes
+Once searched, a request will be made to the Food2Fork API and will populate a list of found recipes.
+![Generated Recipes Example](img/eatery_recipes_example.png)
 
-### User Routes
-***
-#### **Route**:   **POST** api/users/register  
-**Description**:   Register a user  
-**Access**: Public  
-**Parameters**: Name, Email, Password, Password2 (Confirm Password)
+Users can then click on a recipe of their choose to get more information on said recipe.
+![Recipe Info Example](img/eatery_recipe_info_example.png)
 
-#### **Route**:   **POST** api/users/login 
-**Description**:   Login a user  
-**Access**: Public  
-**Parameters**: Email, Password
+### Create an Account and Store Recipes
+Users are able to create an account to save their favorite recipes. User's passwords are encrypted with [bcrypt](https://github.com/kelektiv/node.bcrypt.js#readme) before being stored in the database. Private routes are protected with [passport](http://www.passportjs.org/docs/) which require a valid [JSON web token](https://jwt.io/), generated when the user logs in (1 hour time limit before it expires and user gets logged out).
 
-### Recipe Routes
-***
-#### **Route**:   **POST** api/recipes/save  
-**Description**:   Save a recipe to the database  
-**Access**: Private  
-**Parameters**: Recipe_id, User_id, Title, Publisher, Image_URL
-
-#### **Route**:   **GET** api/recipes/fetch-recipes 
-**Description**:   Fetch all recipes the user has saved  
-**Access**: Private  
-**Parameters**: User_id
-
-#### **Route**:   **GET** api/recipes/fetch-recipe/:id 
-**Description**:   Check to see if a user has current recipe saved  
-**Access**: Private  
-**Parameters**: Recipe_id
-
-#### **Route**:   **DELETE** api/recipes/delete/:id
-**Description**:   Delete a recipe from user account  
-**Access**: Private  
-**Parameters**: Recipe_id, User_id
-
+![Register Example](img/eatery_register_example.png)
+![Saved Recipes Example](img/eatery_save_example.png)
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details
