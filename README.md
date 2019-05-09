@@ -26,7 +26,7 @@ Users can then click on a recipe of their choose to get more information on said
 ![Recipe Info Example](img/eatery_recipe_info_example.png)
 
 ### Create an Account and Store Recipes
-Users are able to create an account to save their favorite recipes. User's passwords are encrypted with [bcrypt](https://github.com/kelektiv/node.bcrypt.js#readme) before being stored in the database. Private routes are protected with [passport](http://www.passportjs.org/docs/) which require a valid [JSON web token](https://jwt.io/), generated when the user logs in (1 hour time limit before it expires and user gets logged out).
+Users are able to create an account to save their favorite recipes. User's passwords are encrypted with [bcrypt](https://github.com/kelektiv/node.bcrypt.js#readme), a hashing library, before being stored in the database. Private routes are protected with [passport](http://www.passportjs.org/docs/) which requires a valid [JSON web token](https://jwt.io/), generated when the user logs in (1 hour time limit before it expires and user gets logged out).
 
 ![Register Example](img/eatery_register_example.png)
 ![Saved Recipes Example](img/eatery_save_example.png)
