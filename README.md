@@ -2,6 +2,9 @@
 
 A recipe search engine built with React and Node JS, powered by the [Food2Fork API](https://www.food2fork.com/about/api).
 
+## Project Update
+Food2Fork API has been shutdown.
+
 ## Built With
 
 ### Front-End
